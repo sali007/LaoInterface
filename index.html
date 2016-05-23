@@ -1,0 +1,433 @@
+<html>
+<head>
+    <title>Index</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="./css/index.css" type="text/css" />
+
+    <script type="text/javascript" src="./js/engine/utils.js"></script>
+
+    <script type="text/javascript" src="./js/engine/storage.js"></script>
+
+    <script type="text/javascript" src="./js/engine/base.js"></script>
+
+    <script type="text/javascript" src="./js/engine/advert.js"></script>
+
+    <script type="text/javascript" src="./advert_content.js"></script>
+
+    <script type="text/javascript" src="./advert_content.js"></script>
+
+    <script type="text/javascript" src="./js/engine/holidays.js"></script>
+
+    <script type="text/javascript">
+
+        var nAdvTimer = 0;
+        var startPosY = 200;
+        var endPosY = 600;
+        var currentPosY = 440;
+        var flag = false;
+        var dat = new Date();
+        var advert3;
+
+
+        function start() {
+
+
+            //------------------Курсы -------------------------
+            var str = ff.curstab.value;
+            storage.put("curstab", str);
+
+
+            var str1 = ff.cur.value;
+            storage.put("cur", str1);
+
+            //------------------Курсы -------------------------
+            var sLang = storage.get("language");
+
+            if (!sLang || sLang == "null") {
+                sLang = "F1";
+                storage.put("language", sLang);
+            }
+            //$("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
+            //$("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
+            //$(sLang + "_lang").style.background = "url('./img/ui/index/l_" + sLang + "_on.png') no-repeat";
+            // $("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLang + ".gif') no-repeat";
+            //  $("btn_2").style.background = "url('./img/ui/index/main_info_" + sLang + ".gif') no-repeat";
+            //   $("btn_3").style.background = "url('./img/ui/index/butt_bott_" + sLang + "_zkh.gif') no-repeat";
+            $('rules').style.background = 'url(\'./img/ui/index/rules_' + sLang + '.png\') no-repeat';
+            $('info').style.background = 'url(\'./img/ui/index/info_' + sLang + '.png\') no-repeat';
+
+            $('new_button_1').style.background = 'url(\'./img/ui/index/left-up.png\') no-repeat';
+            $('new_button_2').style.background = 'url(\'./img/ui/index/left-down.png\') no-repeat';
+            $('new_button_3').style.background = 'url(\'./img/ui/index/right-up.png\') no-repeat';
+            $('new_button_4').style.background = 'url(\'./img/ui/index/right-down.png\') no-repeat';
+
+            $("Language").value = sLang;
+            storage.clearExcept(["_adv_counter", "language"]);
+
+            //-------------------Курсы----------------------
+            var mess = ''
+            var sLang = storage.get("language");
+            if (ff.cur.value !== "") {
+                $("cursy").style.display = "none";
+                if (sLang == "F1") {
+                    var mess = "Вы можете оплатить в валютах: ";
+                }
+                if (sLang == "FC") {
+                    var mess = "You can pay in currencies: ";
+                }
+            }
+            //   $("messlang").innerHTML = mess;
+           // $("new_curs").innerHTML = mess + '<br/>';
+        }
+        function tablcurs() {
+
+            var str = ff.cur.value;
+            var curs = str.split("|");
+            for (var i = 0; i < curs.length; i++) {
+                var hrr = '';
+                var cursn = "-";
+                if (i > 0) hrr = '<hr>';
+                if (curs[i] == 643)
+                    cursn = "RUB";
+                if (curs[i] == 840)
+                    cursn = "USD";
+                if (curs[i] == 978)
+                    cursn = "EUR";
+                if (curs[i] == 949)
+                    cursn = "TRY";
+                if (curs[i] == 818)
+                    cursn = "EGP";
+
+               // $("new_curs").innerHTML += [cursn + '  '].join('');
+            }
+
+        }
+
+        //-------------------Курсы----------------------
+        function setLang(sLanguage) {
+            storage.put("language", sLanguage);
+            $("Language").value = sLanguage;
+            //  $("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLanguage + ".gif') no-repeat";
+            // $("btn_2").style.background = "url('./img/ui/index/main_info_" + sLanguage + ".gif') no-repeat";
+            // $("btn_3").style.background = "url('./img/ui/index/butt_bott_" + sLanguage + "_zkh.gif') no-repeat";
+            $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
+            $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
+            $(sLanguage + "_lang").style.background = "url('./img/ui/index/l_" + sLanguage + "_on.png') no-repeat";
+
+        }
+        /*function butlang() {
+            var sLang = storage.get("language");
+            if (sLang == "F1") {
+                document.getElementById('F1_lang').style.display = "block";
+                document.getElementById('FC_lang').style.display = "block";
+            }
+            else
+                if (sLang == "FC") {
+                    document.getElementById('FC_lang').style.display = "block";
+                    document.getElementById('F1_lang').style.display = "block";
+                }
+        } */
+
+        function init() {
+
+
+            if ($("tel").value.length == 0)
+                $("tel").value = storage.get("sTel_adv_counter");
+            processEnterSummAdvert();
+            storage.clearExcept(["_adv_counter", "_group_rotator"]);
+            date();
+            storage.put("pay_info", "null");
+            storage.clearExcept("_adv_counter");
+            startAdvert("Index");
+            getBtmContent("advert_4");
+            if ($("advert_3").innerHTML.length > 0) {
+                $("advert_5").style.display = "none";
+                advert3 = $("advert_3");
+                moveAdvert();
+            }
+            else
+                if ($("advert_5").innerHTML.length > 0)
+                    $("advert_5").style.display = "block";
+            clock();
+            attachEventListener('new_button_1', 'click', function () {
+                onButtonClick(1)
+            });
+            attachEventListener('new_button_2', 'click', function () {
+                onButtonClick(2)
+            });
+            attachEventListener('new_button_3', 'click', function () {
+                onButtonClick(3)
+            });
+            attachEventListener('new_button_4', 'click', function () {
+                onButtonClick(4)
+            });
+            attachEventListener('info', 'click', function () {
+                onButtonClick(5)
+            });
+
+            attachEventListener('rules', 'click', function () {
+                onButtonClick(6)
+            });
+
+
+
+            //  new CInnerShadow($('rules'), { radius: 32, height: 130 });
+
+        }
+        ;
+        function showInnerShadow(id) {
+            if (!canRaphael) $(id).className = 'show';
+        }
+        ;
+        function processEnterSummAdvert() {
+            var sIsEnterSummAdvert = escape(storage.get('es_advert'));
+            if (parseInt(sIsEnterSummAdvert)) {
+                storage.put('es_advert', '0');
+                var ff = $('ff');
+                ff.appendChild(createInput('prv_id', '323'));
+                ff.appendChild(createInput('prv_name', 'Magitel'));
+                ff.appendChild(createInput('getAccountNumber', '0000000000'));
+                ff.appendChild(createInput('_extra_fake_provider', 'true'));
+                ff.appendChild(createInput('_extra_result_int_page', 'index.html'));
+                ff.appendChild(createInput('_extra_no_print_check', 'true'));
+                ff.appendChild(createInput('_extra_MGT_project_number', unescape(storage.get('es_prj_id'))));
+                ff.appendChild(createInput('_extra_MGT_action_number', unescape(storage.get('es_action_number'))));
+                ff.appendChild(createInput('_extra_MGT_phone_number', unescape(storage.get('es_phone_number').substr(0).replace(new RegExp("[ ]", "g"), ""))));
+                ff.appendChild(createInput('_extra_MGT_summ', unescape(storage.get('es_summ'))));
+                ff.action = './index.html';
+                ff.submit();
+                top.location.href = './index.html';
+            }
+        }
+        function clock(bTimeout) {
+
+            now = new Date();
+            hours = now.getHours();
+            minutes = now.getMinutes();
+            timeStr = "" + hours;
+            timeStr += ((minutes < 10) ? ":0" : ":") + minutes;
+            $("clock").innerHTML = timeStr;
+            setTimeout("clock()", 5000);
+        }
+        function date() {
+            var sLang = storage.get("language");
+            if (sLang == "F1") {
+                var nMonthNames = ['ເດືອນມັງກອນ', 'ເດືອນກຸມພາ', 'ເດືອນມີນາ', 'ເດືອນເມສາ', 'ເດືອນພຶດສະພາ', 'ເດືອນມີຖຸຸນາ', 'ເດືອນກໍລະກົດ', 'ເດືອນສິງຫາ', 'ເດືອນກັນຍາ', 'ເດືອນຕຸລາ', 'ເດືອນພິຈິກ', 'ເດືອນທັນວາ'];
+                var nDay2Names = ['ວັນອາທິດ', 'ວັນຈັນ', 'ວັນອັງຄານ', 'ວັນພຸດ', 'ວັນພະຫັດ', 'ວັນສຸກ', 'ວັນເສົາ'];
+                var nMonth = 1 + dat.getMonth();
+                var nDay = dat.getDate();
+                var nDay2 = dat.getDay();
+                $("date").innerHTML = [
+                    nDay,
+                    ' ',
+                    nMonthNames[nMonth - 1],
+                    '<br />',
+                    '<span style="width: 100%; font-size: 26px; font-weight: normal;">',
+                    nDay2Names[nDay2],
+                    '</span>'
+                ].join('');
+            }
+            else {
+                var nMonthNames = ['january', 'february', 'march', 'april', 'may ', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+                var nDay2Names = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                var nMonth = 1 + dat.getMonth();
+                var nDay = dat.getDate();
+                var nDay2 = dat.getDay();
+                $("date").innerHTML = [
+                    nDay,
+                    ' ',
+                    nMonthNames[nMonth - 1],
+                    '<br />',
+                    '<span style="width: 100%; font-size: 26px; font-weight: normal;">',
+                    nDay2Names[nDay2],
+                    '</span>'
+                ].join('');
+            }
+        }
+        function moveAdvert() {
+            if (currentPosY == endPosY)
+                flag = true;
+            if (currentPosY == startPosY)
+                flag = false;
+            if (flag) {
+                advert3.style.top = currentPosY;
+                currentPosY--;
+            }
+            else {
+                advert3.style.top = currentPosY;
+                currentPosY++;
+            }
+            setTimeout('moveAdvert()', 40);
+        }
+
+        function onButtonClick(nBtnNum) {
+            storage.put("last_page", document.location.href);
+          //  showInnerShadow('btn_' + nBtnNum);
+            switch (nBtnNum) {
+                case 1:
+
+                    //storage.put("group", "-100001:1");
+                    //alert();
+                    //            if(ff.cur.value == ""){
+                    //            location.href = "./online_payment_error.html";}
+                    //            else{
+                    storage.put("provider", "686");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+                case 2:
+                    storage.put("provider", "690");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+                case 3:
+                    storage.put("provider", "699");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+                case 4:
+                    storage.put("provider", "695");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+                case 5:
+                    top.location.href = "./info.html";
+                    break;
+
+
+                case 6:
+                    top.location.href = "./guid.html";
+                    break;
+
+            }
+        }
+        function preloadMain() {
+            if (!$('preload')) {
+                var preload = document.createElement('iframe');
+                preload.src = "main.html";
+                preload.name = "preload";
+                preload.id = "preload";
+                preload.frameborder = "0";
+                preload.scroll = "no";
+                document.getElementsByTagName('body')[0].appendChild(preload);
+            }
+        }
+        function createInput(sName, sValue) {
+            var oInput = document.createElement('input');
+            oInput.id = oInput.name = sName;
+            oInput.type = 'hidden';
+            oInput.value = sValue;
+            return oInput;
+        }
+        function onValueChange(tel) {
+            storage.put("sTel_adv_counter", $("tel").value);
+        }
+
+        function clickBtn(sUrl) {
+            $("ff").action = sUrl;
+            $("ff").submit();
+        }
+        function webmoney() {
+            storage.put("group", "-300000");
+
+            location.href = "./pages.html";
+        }
+    </script>
+
+</head>
+<body onload="init(); start();date();">
+    <div id="content" style="position: relative; left: 50%; margin: 0 0 0 -640px;">
+   <!--     <div style="position: absolute; width: 217px; height: 270px; left: 50px; top: 270px; background:url('./img/ui/bg2.png') no-repeat;  " onclick="webmoney();" ></div>-->
+        <div class="banner" id="advert_5">
+        </div>
+        <div id="advert_3" class="banner">
+        </div>
+        <div id="logo" style="display: none">
+        </div>
+        <div id="panel">
+        </div>
+        <div id="c_l">
+            <div id="buttons">
+                <div id="btn_1" onclick="clickBtn('./main.html');">
+                </div>
+                <!--                <div id="btn_2">
+                </div>
+                <div id="btn_3">
+                </div>-->
+            </div>
+            <div style="display: none;">
+            </div>
+            <div class="banner" id="advert_2">
+            </div>
+        </div>
+        <div id="con">
+            <div class="banner" id="advert_1">
+            </div>
+            <div class="banner" style="padding: 0px; text-align: right;">
+            </div>
+        </div>
+        <div id="text_info">
+            <form id="ff" name="ff" method="post" action="#">
+                <input style="display: none;" type="hidden" name="interface_version" value="LAOS 1.2.3" />
+                <input name="tel" type="text" value="toyar" style="position: absolute; text-align: inherit ;   width: 1280px;   height: 50px;  background-color: transparent;   left: 0px;   font-size: 32px;   color: #FFFFFF; "/>
+                <input style="display: none;" type="hidden" id="Language" name="Language" value="" />
+                <input style="display: none;" id="cur" name="cur" type="text" value="643|840|978|949|818|418" />
+                <input style="display: none;" id="curstab" name="curstab" type="text" value="643;RUB;840;USD;0.0346|840;USD;398;KZT;146.7|840;USD;643;RUB;29.255599999|840;USD;840;USD;1.0000|978;EUR;840;USD;1.4433|978;EUR;840;USD;1.4433|840;USD;949;TRY;0,0625|949;TRY;840;USD;16,6911|818;EGP;840;USD;16,6911" />
+            </form>
+        </div>
+    </div>
+    <div id="clock">
+    </div>
+    <div id="date">
+    </div>
+    <!--<div id="lang_panel">
+        <div id='F1_lang' style="display: block; position: relative; right: 25%; color: white; padding: 60 0 0 22px;"
+            onclick='setLang("F1");date();butlang();start(); tablcurs();'>
+            Русский
+        </div>
+        <div id='FC_lang' style="display: block; position: relative; left: 25%; color: white; padding: 60 0 0 22px;"
+            onclick='setLang("FC");date();butlang();start(); tablcurs();'>
+            English
+        </div> -->
+        <!------------------Курсы Вывод на экран------------------>
+        <div class="currency-panel" id="cursy" align="center" style="display: none">
+            <div id="messlang" class="title">
+            </div>
+            <div id="curs" class="element bb" style="font-size: 27; color: gray; text-align: center;">
+            </div>
+            <div class="ender">
+            </div>
+        </div>
+        <!--------------------Курсы  Вывод на экран------------------------>
+    </div>
+
+    <script type="text/javascript">
+        attachPropertyChangeListener("tel", $callback(onValueChange));
+    </script>
+
+
+    <div id="easypay_logo" style="position: absolute; width: 980px; height: 330px; left: 170px; top: 120px;  background: url('./img/ui/EasyPay-logo-main.png') no-repeat;">
+
+    </div>
+    <!--<div id='new_curs' style='position: absolute; width: 500px; height: 70px; left: 390px; top: 25px; color: white; text-align: center; font-size: 28px;'></div>-->
+    <div id="info" style="width: 300px; height: 114px; left: 535px; top: 850px; position: absolute;"></div>
+    <!--<div style="position: absolute; width: 100px; height: 100px; left: 585px; top: 850px; background: url(./img/ui/index/inf.png);" onclick=" document.location.href = './karta.html'; "></div>-->
+    <div id="rules" style="width: 300px; height: 114px; left: 635px; top: 850px; position: absolute;"></div>
+    <div id='new_buttons' style='position: absolute; width: 950px; height: 400px; left: 165px; top: 330px; z-index: 1000; text-align:center;'>
+        <table width="100%" height="100%" >
+            <tr>
+                <td id="new_button_1"></td>
+                <td id="new_button_3"></td>
+            </tr>
+            <tr>
+                <td id="new_button_2"></td>
+                <td id="new_button_4"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

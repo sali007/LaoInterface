@@ -1,0 +1,32 @@
+﻿@import url("base.css");
+
+.txt
+{
+    width: 550px;
+    color: #888;
+    font-size: 25px;
+    margin-left: 380px;
+}
+
+.t_l
+{
+    text-align: left;
+}
+
+.f_e
+{
+    margin-top: 300px;
+}
+
+#progress_bar
+{
+    width: 676px;
+    height: 241px;
+    margin-left: 302px;
+}
+
+#content
+{
+    width: 1280px;
+    height: 1024px;
+}

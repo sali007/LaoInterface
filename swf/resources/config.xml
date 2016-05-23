@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<qiwi>
+	<Index>
+		<page id="index_page_2" move="0" bx="1000" by="530"/>
+		<page id="index_page_3" move="1" bx="100" by="360" ex="20" ey="580" t="100"/>
+		<page id="index_page_4" move="0" bx="850" by="800"/>
+		<page id="index_page_5" move="0" bx="30" by="800"/>
+	</Index>
+</qiwi>

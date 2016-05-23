@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Groups/Providers</title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+	<link rel="stylesheet" href="./css/gr_prv.css" type="text/css" />
+	<script src="./js/engine/utils.js" type="text/javascript"></script>
+	<script src="./js/engine/hyphen.js" type="text/javascript"></script>
+	<script src="./js/engine/base.js" type="text/javascript"></script>
+	<script src="./js/engine/data.js" type="text/javascript"></script>
+	<script src="./js/engine/storage.js" type="text/javascript"></script>
+	<script src="./js/engine/keyboards.js" type="text/javascript"></script>
+	<script src="./advert_content.js" type="text/javascript"></script>
+	<script src="./js/engine/advert.js" type="text/javascript"></script>
+    <script src="./js/engine/pages.js" type="text/javascript"></script>
+	<script src="./js/engine/pages.main.js" type="text/javascript"></script>
+		<script src="./js/engine/pages.pages.js" type="text/javascript"></script>
+	<script src="./prv_on_first_page_null.js" type="text/javascript"></script>
+	    <script src="./js/engine/top5.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    
+//            	           function clickprv()
+// { 
+// var sLang = storage.get("language");
+//top.location.href = "./index.html";
+// 
+// getScript("./config/" + sLang + "/"  + "2" + ".js", this._prvLoaded, [], this);
+// this._clickProvider();
+// }
+ 
+// 
+//         function onTopBtnClick(sBtn) {
+
+//                        switch (sBtn) {
+//                case "1":
+////                    storage.put("getAccountNumber", $("num_inp").value);
+//                   
+//                    storage.put("prv_id", "1");
+//                    storage.put("prv_name", "МТС");
+//                    storage.put("prv_logo", "./img/ui_item/1.gif");
+//                    top.location.href = "./provider.html";
+//                    break;
+//            }
+//            
+//            
+//            
+//            
+//                                    switch (sBtn) {
+//                case "2":
+////                    storage.put("getAccountNumber", $("num_inp").value);
+//                   
+//                    storage.put("prv_id", "2");
+//                    storage.put("prv_name", "Билайн");
+//                    storage.put("prv_logo", "./img/ui_item/2.gif");
+//                    top.location.href = "./provider.html";
+//                    break;
+//            }
+//        }
+// 
+ 
+ 
+ 
+		function init() {
+		    var sLang = storage.get("language");
+
+
+		    getScript("./config/" + sLang + "/confgroups.js");
+
+
+
+		    
+
+
+            log.add('Page render start');
+			var page = newObject(CMainPage, null, null, null, "page", "content");
+			page.render();
+			log.add('Page render finish');
+
+			checkUsage();
+		}
+
+	</script>
+</head>
+<body onload="init();">
+    <div id="easypay_logo"></div>
+	<div id="content"></div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+﻿@import url("base.css");
+
+
+
+.currency-panel { display: block; width: 250px !important; background: url('../img/ui/currency.panel.back.gif') top left no-repeat; }
+.currency-panel .title, .currency-panel .element, .currency-panel .ender { display: block; clear: both; }
+.currency-panel .title { font-size: 130%; padding: 20px 20px 15px 20px; color: #787878; text-align:center; }
+.currency-panel .element { padding: 15px 0; margin: 0 20px; overflow: hidden; }
+.currency-panel .element strong, .currency-panel .element small { float: left; color: #444444; }
+.currency-panel .element strong { font-size: 240%; font-weight: bold; margin-right: 10px; }
+.currency-panel .element small { font-size: 140%; margin-top: 8px; }
+.currency-panel .element.bt { border-top: 1px solid #fff; }
+.currency-panel .element.bb { border-bottom: 0px solid #a2a2a2; }
+.currency-panel .ender { height: 30px; background: url('../img/ui/currency.panel.back.gif') bottom left no-repeat; }
+
+
+
+
+.banner
+{
+    overflow: hidden;
+}
+
+
+#content
+{
+     background: url('../img/ui/index/background2.jpg') no-repeat center;  
+    width: 1280px;
+    height: 1024px;
+    margin: 0 auto;
+    top:-1px;
+}
+
+#panel
+{
+    width: 1280px; 
+    height: 107px; 
+    /*background: url('../img/ui/index/index_up.gif') no-repeat;*/
+}
+
+#c_l
+{
+    width: 1280px; 
+    height: 524px; 
+    margin-top: 159px;
+    padding-left: 338px;
+}
+
+#buttons
+{ 
+    float: left; 
+    width: 604px; 
+    height: 524px;
+
+}
+
+
+#logo
+{
+    position: absolute;
+    top: 50px;
+    left: 593px;
+    width: 97px;
+    height: 158px;
+    background: url('../img/ui/qiwi_logo_158px.gif') no-repeat;
+}
+#logo div
+{
+	position: absolute;
+	right: -20px;
+	top: -22px;
+	width: 175px;
+	height: 200px;
+	/*opacity: 0.5;*/
+	background: #F5F5F5;
+}
+
+#advert_5
+{
+    position: absolute;
+    top: 305px;
+    left: 30px;
+    width: 240px; 
+    height: 450px;
+    z-index: 10;
+    display: none;
+}
+
+#advert_3
+{
+    position: absolute;
+    top: 440px;
+    left: 30px;
+    width: 240px; 
+    height: 180px;
+    z-index: 10;
+}
+
+#advert_2
+{
+    width: 240px; 
+    height: 180px; 
+    float: left; 
+    margin-top: 170px; 
+    margin-left: 70px; 
+}
+
+#advert_1
+{
+    width: 500px; 
+    height: 200px; 
+    float: left;
+}
+
+#advert_4
+{
+    width: 500px; 
+    height: 200px; 
+    float: right;
+}
+
+#btn_1
+{
+    width: 604px; 
+    height: 169px; 
+    background: url('../img/ui/index/btn_payment.gif') no-repeat;
+}
+
+#btn_2
+{
+    width: 604px; 
+    height: 154px;
+    margin-top: 5px;  
+    background: url('../img/ui/index/btn_lk.gif') no-repeat;
+}
+
+#btn_3
+{
+    width: 604px; 
+    height: 175px; 
+    margin-top: 5px;
+    background: url('../img/ui/index/btn_bank.gif') no-repeat;
+}
+
+#btn_1 img,
+#btn_2 img,
+#btn_3 img
+{
+	visibility: hidden;
+	display: block;
+}
+#btn_1.show img,
+#btn_2.show img,
+#btn_3.show img
+{
+	visibility: visible;
+}
+
+#btn_info
+{
+    width: 111px;
+    height: 97px;
+    float: left;
+    margin-left: 85px;
+    background: url('../img/ui/inf_F1.gif') center no-repeat;
+}
+
+#clock
+{
+    width: 120px;
+    height: 60px;
+    font-size: 26px;
+    color: #fff;
+    font-weight: normal;
+    position: absolute;
+    right: 23px;
+    top: 28px;
+
+}
+
+#date
+{
+    width: 262px;
+    height: 70px;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    font-weight: normal;
+    position: absolute;
+    right: -20px;
+    top: 60px;
+
+}
+
+#con
+{
+    width: 1280px; 
+    height: 200px; 
+    margin-top: 10px; 
+}
+
+#text_info
+{       position: absolute;
+    /*text-align: inherit ;*/
+    width: 1280px; 
+    height: 50px; 
+    top: 974px;
+    background-color: transparent;   
+}
+
+#preload
+{
+	position: absolute;
+	left: 0; 
+	top: -100%; 
+	width: 100%; 
+	height: 100%; 
+	border: 0 none; 
+	margin: 0; 
+	padding: 0; 
+	z-index: 25000;
+	overflow: hidden;
+}
+#preload.active
+{
+	left: 0px;
+	top: 0px;
+}
+
+#lang_panel
+{
+    position: absolute; 
+    width: 540px; 
+    height: 80px; 
+    top: 25px; 
+    right: -10px; 
+}
+#F1_lang
+{
+    position: center;
+    float: right;
+    width: 120px; 
+    height: 100%; 
+}
+#FC_lang
+{
+    position: center;
+    float: right;
+    width: 150px; 
+    height: 100%; 
+}
+#cursy
+{
+    position: absolute;
+    float: left;
+    width: 150px; 
+    right: 50px;
+    top: 250px; 
+}

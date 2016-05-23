@@ -1,0 +1,308 @@
+<html>
+<head>
+    <title>Info</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" content="180; URL=./index.html" />
+    <link rel="stylesheet" href="./css/info.css" type="text/css" />
+
+    <script type="text/javascript" src="./js/engine/utils.js"></script>
+
+    <script type="text/javascript" src="./js/engine/storage.js"></script>
+
+    <script type="text/javascript" src="./js/engine/base.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_F1.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_FC.js"></script>
+
+    <script type="text/javascript">
+
+        var OFF_PARS = 7;
+        var nCurPar = 0;
+        var nCurOfferPar = 0;
+
+        function clickBtn(nIdx) {
+            var oCurBtn = $("btn_" + nCurPar);
+            var oCurCont = $("cont_" + nCurPar);
+            var oSelectBtn = $("btn_" + nIdx);
+            var oSelectCont = $("cont_" + nIdx);
+            if (oCurBtn == oSelectBtn) return;
+            if (!($isNoU(oSelectBtn) || $isNoU(oSelectCont))) {
+                oSelectBtn.className = "menu_btn_on";
+                oSelectBtn.childNodes[0].className = "menu_txt_on";
+                oSelectCont.style.display = "block";
+                if (!($isNoU(oCurBtn) || $isNoU(oCurCont))) {
+                    oCurBtn.className = "menu_btn_off";
+                    oCurBtn.childNodes[0].className = "menu_txt_off";
+                    oCurCont.style.display = "none";
+                }
+                if (nIdx == 3) {
+                    nCurOfferPar = 0;
+                    arrowClick("RIGHT");    
+                }
+//                if (nIdx == 11){
+//                
+//                }
+                nCurPar = nIdx;
+            }
+        }
+
+        function arrowClick(sDelivery) {
+            var oCurOfferPar = $("off_" + nCurOfferPar);
+            if (!$isNoU(oCurOfferPar)) {
+                oCurOfferPar.style.display = "none";
+            }
+            if (sDelivery == "LEFT") {
+                nCurOfferPar--;
+            }
+            else if (sDelivery == "RIGHT") {
+                nCurOfferPar++;
+            }
+            oCurOfferPar = $("off_" + nCurOfferPar);
+            if (!$isNoU(oCurOfferPar)) {
+                oCurOfferPar.style.display = "block";
+            }
+            if (nCurOfferPar == 1) {
+                $("arrow_left").style.display = "none";
+            }
+            else if (nCurOfferPar > 1) {
+                $("arrow_left").style.display = "block";
+            }
+            if (nCurOfferPar == OFF_PARS) {
+                $("arrow_right").style.display = "none";
+            }
+            else if (nCurOfferPar < OFF_PARS) {
+                $("arrow_right").style.display = "block";
+            }
+        }
+        
+        function displayPrvData() {
+            storage.put("prv_data_page", "0");
+            ff.submit();    
+        }
+        
+        function loadvar(){
+        
+        
+        
+        	   var sLang = storage.get("language");
+       if(sLang == "F1")
+       {
+       $("btn_center_F1").style.display = "block";
+//       document.getElementById('btn_back').style.display = "block";
+//       document.getElementById('btn_forward').style.display = "block";
+//       document.getElementById('btn_del').style.display = "block";
+       
+       }
+       else {
+       $("btn_center_FC").style.display = "block";
+//       document.getElementById('btn_back_FC').style.display = "block";
+//       document.getElementById('btn_forward_FC').style.display = "block";
+//       document.getElementById('btn_del_FC').style.display = "block";
+       }
+		
+        
+        
+        
+        
+//	        var props = document.getElementById('dealer_bank_props').value;
+//	        document.getElementById('dealer_bank_props_txtarea').innerHTML = props;
+		new CInnerShadow($('btn_left'), { color: 30 });
+		new CInnerShadow($('btn_center'), { saturation: 1, brightness: 200 });
+		new CInnerShadow($('btn_right'), { color: 30 });
+	        attachPropertyChangeListener('OfferType', showOffer);
+	        showOffer();
+        }
+        
+        function showOffer()
+        {
+        	$('cont_off_place').className = 'offer' + (parseInt($('OfferType').value) + 1) + '_show';
+        };
+
+    </script>
+
+</head>
+<body onload="clickBtn(1); loadvar();">
+    <div id="content">
+        <div id="title">
+            <div id="title_text" class="title">
+                    <div id="title_text_div">
+                        <script type="text/javascript">document.write(getStr("info_info"));</script>
+                    </div>
+            </div>
+        </div>
+        <div id="work_place">
+            <div id="menu" class="f_l">
+                <div id="btn_1" class="menu_btn_off" onclick="clickBtn(1);">
+                    <span class="menu_txt_off">
+
+                        <script type="text/javascript">document.write(getStr("o_terminale"));</script>
+
+                    </span>
+                </div>
+                <!--            <div id="btn_2" class="menu_btn_off" onClick="clickBtn(2);"><span class="menu_txt_off"><script type="text/javascript">document.write(getStr("dla_klientov"));</script></span></div>-->
+                <div id="btn_3" class="menu_btn_off" onclick="clickBtn(3);">
+                    <span class="menu_txt_off">
+
+                        <script type="text/javascript">document.write(getStr("oferta1"));</script>
+
+                    </span>
+                </div>
+                         </div>
+            <div id="info" class="f_r">
+
+                <div class="round_line">
+                    <div class="angle bg_lt f_l">
+                    </div>
+                    <div class="hor_rect f_l">
+                    </div>
+                    <div class="angle bg_rt f_l">
+                    </div>
+                </div>
+
+                <div id="info_cont">
+
+                    <div id="cont_1" class="cont_txt" style="display: none; position: relative">
+                        <form id="ff1" name="ff1" method="post" action="#" style="">
+                        <div class="par">
+                            <div class="f_l">
+
+                                <script type="text/javascript">document.write(getStr("info1"));</script>
+
+                            </div>
+                            <div class="f_r">
+                                <input id="terminal_number" name="terminal_number" class="inp" type="text" value="" /></div>
+                        </div>
+                        <div class="par">
+                            <div class="f_l">
+
+                                <script type="text/javascript">document.write(getStr("info2"));</script>
+
+                            </div>
+                            <div class="f_r">
+                                <input id="address" name="address" class="inp" type="text" value="" /></div>
+                        </div>
+                        <div class="par">
+                            <div class="f_l">
+
+                                <script type="text/javascript">document.write(getStr("info3"));</script>
+
+                            </div>
+                            <div class="f_r">
+                                <input id="name" name="name" class="inp" type="text" value="" /></div>
+                        </div>
+                        <div class="par">
+                            <div class="f_l">
+
+                                <script type="text/javascript">document.write(getStr("info4"));</script>
+
+                            </div>
+                            <div class="f_r">
+                                <input id="number" name="number" class="inp" type="text" value="" /></div>
+                        </div>
+                        <div class="par">
+                            <div class="f_l">
+
+                                <script type="text/javascript">document.write(getStr("info5"));</script>
+
+                            </div>
+                            <div class="f_r">
+                                <input id="phone" name="phone" class="inp" type="text" value="" /></div>
+                        </div>
+                        <!--<div class="menu_btn_off" style="position:absolute; left:0; bottom:0; margin: 0" onClick="displayPrvData()"><span id="requisite">РЕКВИЗИТЫ ПОСТАВЩИКОВ</span></div>-->
+                        </form>
+                    </div>
+
+                    <div id="cont_3" class="cont_txt" style="display: none;">
+                        <div id="cont_off_place" class="offer1_show">
+                            <!--СТРАНИЦА 1-->
+                            <div id="off_1" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">document.write(getStr("oferta2"));</script>
+                                </div>
+                            </div>
+                            <!--СТРАНИЦА 2-->
+                            <div id="off_2" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">document.write(getStr("oferta3"));</script>
+                                </div>
+                            </div>
+                            <!--СТРАНИЦА 3-->
+                            <div id="off_3" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">    document.write(getStr("oferta4"));</script>
+                                </div>
+                            </div>
+                            <!--СТРАНИЦА 4-->
+                            <div id="off_4" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">    document.write(getStr("oferta5"));</script>
+                                </div>
+                            </div>
+                            <!--СТРАНИЦА 5-->
+                            <div id="off_5" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">    document.write(getStr("oferta6"));</script>
+                                </div>
+                            </div>
+                            <!--СТРАНИЦА 6-->
+                            <div id="off_6" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">    document.write(getStr("oferta7"));</script>
+                                </div>
+                            </div>
+
+                            <div id="off_7" class="off_txt w_h_100 d_n">
+                                <div class="offer1">
+                                    <script type="text/javascript">    document.write(getStr("oferta8"));</script>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div id="cont_off_arrows">
+                            <div id="arrow_left" class="f_l arrow" onclick="arrowClick('LEFT');">
+                            </div>
+                            <div id="arrow_right" class="f_r arrow" onclick="arrowClick('RIGHT');">
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+                <div class="round_line">
+                    <div class="angle bg_lb f_l">
+                    </div>
+                    <div class="hor_rect f_l">
+                    </div>
+                    <div class="angle bg_rb f_l">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="btn_left" class="bottom-button-left">
+            </div>
+            <div id="btn_center_F1" style="display: none;" class="bottom-button-center" onclick="top.location.href = './index.html';">
+                <img src="./img/ui/navigation/menu_F1.gif" />
+            </div>
+            <div id="btn_center_FC" style="display: none;" class="bottom-button-center" onclick="top.location.href = './index.html';">
+                <img src="./img/ui/navigation/menu_FC.gif" />
+            </div>
+            <div id="btn_right" class="bottom-button-right">
+            </div>
+        </div>
+    </div>
+    <form name="ff" method="post" action="prov_list_130fz.html" target="_top">
+    <input id="ProvListStartRange" name="ProvListStartRange" type="hidden" value="0" />
+    <input id="ProvListEndRange" name="ProvListEndRange" type="hidden" value="13" />
+    </form>
+    <form id="OfferTypeForm" name="OfferTypeForm" method="post" action="#">
+    <input id="OfferType" name="OfferType" type="hidden" value="0" />
+    </form>
+</body>
+</html>

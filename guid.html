@@ -1,0 +1,126 @@
+<html>
+<head>
+
+	<title>provider / 180</title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/base.css" type="text/css" />
+<script type="text/javascript" src="./js/engine/utils.js"></script>
+<script type="text/javascript" src="./js/engine/storage.js"></script>
+<script type="text/javascript" src="./js/engine/base.js"></script>
+<script src="./js/lang/str_F1.js"></script>
+<script src="./js/lang/str_FC.js"></script>
+<script type="text/javascript">
+var i = 0,
+    l = 5;
+function init()
+{
+ var sLang = storage.get("language");
+ if (sLang == "F1"){
+	slide();
+	document.getElementById('btn_back').style.display = "block";
+	document.getElementById('btn_menu').style.display = "block";
+	document.getElementById('btn_forward').style.display = "block";
+	new CInnerShadow($('btn_back'), { color: 30 });
+	new CInnerShadow($('btn_menu'), { saturation: 1, brightness: 200 });
+	new CInnerShadow($('btn_forward'), { color: 30 });
+	}
+	else {	
+	slide();
+	document.getElementById('btn_back_FC').style.display = "block";
+	document.getElementById('btn_menu_FC').style.display = "block";
+	document.getElementById('btn_forward_FC').style.display = "block";
+	new CInnerShadow($('btn_back_FC'), { color: 30 });
+	new CInnerShadow($('btn_menu_FC'), { saturation: 1, brightness: 200 });
+	new CInnerShadow($('btn_forward_FC'), { color: 30 });	
+	}	
+}
+function slide()
+{
+    var sLang = storage.get("language");
+     if (sLang == "F1"){
+	for(var j = 0; j < l + 1; j++) $('div' + (j+1)).style.display = 'none';
+	$('div' + (i+1)).style.display = 'block';
+	$('btn_forward').style.display = i == l ? 'none' : 'block';
+	}
+	else{
+	for(var j = 0; j < l + 1; j++) $('div' + (j+1)).style.display = 'none';
+	$('div' + (i+1)).style.display = 'block';
+	$('btn_forward_FC').style.display = i == l ? 'none' : 'block';
+	}
+	
+};
+function forward()
+{
+	i++;
+	slide();
+}
+function backward()
+{
+	if(i == 0)
+	{
+		window.history.back(-1);
+	}
+	else
+	{
+		i--;
+		slide();
+	}
+}
+</script>
+</head>
+<body onload="init();" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+<center>
+<table cellpadding="10" cellspacing="0" border="0" width="1280" height="100%">
+    <tr>
+	    <td align="center" valign="top" style="width: 100%; height: 880px;">
+		    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
+			    <tr>
+
+			        <td background="./img/ui/title/bg_inf.gif" align="center" valign="middle"><span style="color: #ffffff; font-size: 24px; font-family: Tahoma;"><script type="text/javascript">document.write(getStr("guid"));</script></span></td>
+
+			    </tr>
+		    </table>
+		    <div id="div1" style="margin-top: 30px; display: none;">
+		        <div><script type="text/javascript">document.write(getStr("img1"));</script></div>
+		        <div style="margin-top: 30px; font-size: 26px; color: #F5F5F5;"><script type="text/javascript">document.write(getStr("term_1"));</script></div>
+		    </div>
+		    <div id="div2" style="margin-top: 30px; display: none;">
+		         <div><script type="text/javascript">document.write(getStr("img2"));</script></div>
+		        <div style="margin-top: 30px; font-size: 26px; color: #F5F5F5;"><script type="text/javascript">document.write(getStr("term_2"));</script></div>
+		    </div>
+		    <div id="div3" style="margin-top: 30px; display: none;">
+		        <div><script type="text/javascript">document.write(getStr("img3"));</script></div>
+		        <div style="margin-top: 30px; font-size: 26px; color: #F5F5F5;"><script type="text/javascript">document.write(getStr("term_2a"));</script></div>
+		    </div>
+		    <div id="div4" style="margin-top: 30px; display: none;">
+		         <div><script type="text/javascript">document.write(getStr("img4"));</script></div>
+		        <div style="margin-top: 30px; font-size: 26px; color: #F5F5F5;"><script type="text/javascript">document.write(getStr("term_3"));</script></div>
+		    </div>
+		    <div id="div5" style="margin-top: 30px; display: none;">
+		         <div><script type="text/javascript">document.write(getStr("img5"));</script></div>
+		        <div style="margin-top: 30px; font-size: 26px; color: #F5F5F5;"><script type="text/javascript">document.write(getStr("term_4"));</script></div>
+		    </div>
+		    <div id="div6" style="margin-top: 30px; display: none;">
+		         <div><script type="text/javascript">document.write(getStr("img6"));</script></div>
+		        <div style="margin-top: 30px; font-size: 26px; color: #F5F5F5;"><script type="text/javascript">document.write(getStr("term_5"));document.write(getStr("term_6"));</script></div>
+		    </div>
+
+	    </td>
+	</tr>
+    <tr>
+        <td>
+                <div id="btn_back" style="display: none;" class="bottom-button-left" onclick="backward()"><img src="./img/ui/navigation/back_F1.gif" /></div>
+                <div id="btn_menu" style="display: none;" class="bottom-button-center" onclick="document.location='./index.html'"><img src="./img/ui/navigation/menu_F1.gif" /></div>
+                <div id="btn_forward" style="display: none;" class="bottom-button-right" onclick="forward()"><img src="./img/ui/navigation/forward_F1.gif" /></div>
+                
+                <div id="btn_back_FC" style="display: none;" class="bottom-button-left" onclick="backward()"><img src="./img/ui/navigation/back_FC.gif" /></div>
+                <div id="btn_menu_FC" style="display: none;" class="bottom-button-center" onclick="document.location='./index.html'"><img src="./img/ui/navigation/menu_FC.gif" /></div>
+                <div id="btn_forward_FC" style="display: none;" class="bottom-button-right" onclick="forward()"><img src="./img/ui/navigation/forward_FC.gif" /></div>
+        </td>
+    </tr>   
+</table>
+</center>
+</body>
+</html>

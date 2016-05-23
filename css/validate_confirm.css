@@ -1,0 +1,345 @@
+﻿@import url("base.css");
+
+.title
+{
+    height: 90px;
+    float: left;
+}
+
+.msg
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    width: 100%;
+        margin: 2px 0px 2px 0px;
+        color : #ff6622;
+        background: #f4f4f4;
+        font-size : 16px;
+        font-weight: bold;
+        text-align: center;
+}
+
+.field_bg_line
+{
+    width: 100%;
+    height: 20px;
+}
+
+.field_bg_angle
+{
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.field_bg_hor_rect
+{
+    width: 870px;
+    height: 20px;
+    float: left;
+    background: #e2e2e2;
+}
+
+.info_line
+{
+    width: 100%;
+    color: #888;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.alert
+{
+    position: absolute;
+    width: 801px;
+    height: 482px;
+    background: url('../img/ui/vc/alert_bg.gif') no-repeat;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+
+.alert_header
+{
+    width: 100%;
+    text-align: center;
+    color: #f62;
+    font-size: 67px;
+    margin-top: 28px;
+}
+
+.alert_msg
+{
+    width: 641px;
+    height: 250px;
+    color: #000;
+    font-size: 26px;
+    font-weight: normal;
+    margin: 47px 80px 0px 80px;
+}
+
+.alert_footer
+{
+    width: 100%;
+    height: 50px;
+    color: #26b;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.prv_name {
+    
+}
+
+#advert_1
+{
+    width: 1090px;
+    height: 180px;
+    float: right;
+}
+
+#qiwi_logo
+{
+    width: 86px;
+    height: 140px;
+    float: left;
+    margin-top: 24px;
+}
+
+#work_place
+{
+    width: 100%;
+    /*height: 675px;*/
+    margin-top: 18px;
+}
+
+#bottom_menu
+{
+    width: 1260px;
+    padding: 0px 20px 15px;
+}
+
+#content
+{
+    width: 1280px;
+    height: 1024px;
+}
+
+#title
+{
+    width: 1250px;
+    clear: both;
+}
+
+#title_text
+{
+    width: 1225px;
+    text-align: center;
+    background: url('../img/ui/title/bg.gif') repeat-x;
+}
+
+#title_text_div
+{
+    margin-top: 25px;
+    color: #fff;
+    font-size: 25px;
+}
+
+#title_right
+{
+    width: 25px;
+    background: url('../img/ui/title/r.gif') no-repeat;
+}
+
+#logo_bg
+{
+    width: 241px;
+    height: 132px;
+    float: left;
+    position: relative;
+    top: 14px;
+    left: 14px;
+}
+
+#logo
+{
+    margin-top: 19px;
+}
+
+#field_bg
+{
+    width: 910px;
+    height: 140px;
+    float: left;
+    position: relative;
+    top: 10px;
+    left: 53px;
+}
+
+#field_bg_work_line
+{
+    width: 100%;
+    height: 100px;
+    background: #e2e2e2;
+}
+
+#field_bg_work_place
+{
+    width: 890px;
+    height: 45px;
+    margin: 55px 10px 0px 10px;
+}
+
+#field_bg_lt_angle
+{
+    background: url('../img/ui/angles_cel_info.gif') no-repeat;
+}
+
+#field_bg_rt_angle
+{
+    background: url('../img/ui/angles_cel_info.gif') -20px 0px no-repeat;
+}
+
+#field_bg_lb_angle
+{
+    background: url('../img/ui/angles_cel_info.gif') 0px -20px no-repeat;
+}
+
+#field_bg_rb_angle
+{
+    background: url('../img/ui/angles_cel_info.gif') -20px -20px no-repeat;
+}
+
+#field
+{
+    width: 100%;
+    height: 68px;
+    position: relative;
+    top: -140px;
+}
+
+#field_l
+{
+    width: 23px;
+    height: 68px;
+    float: left;
+    background: url('../img/ui/field/l.gif') no-repeat;
+}
+
+#field_c
+{
+    width: 864px;
+    height: 68px;
+    float: left;
+    background: url('../img/ui/field/c.gif') repeat-x;
+}
+
+#field_txt
+{
+    width: 882px;
+    height: 73px;
+    margin-left: 0px;
+    overflow: hidden;
+}
+
+#field_inp
+{
+    width: 882px;
+    height: 73px;
+    text-align: left;
+    color: #2268c6;
+    font-weight: normal;
+    font-size: 63px;
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+}
+
+#field_r
+{
+    width: 23px;
+    height: 68px;
+    float: left;
+    background: url('../img/ui/field/r.gif') no-repeat;
+}
+
+#advert_2
+{
+    width: 1242px;
+    height: 180px;
+    clear: left;
+    position: relative;
+    margin: 0px 19px 0px 19px;
+}
+
+#sys_info
+{
+    width: 850px;
+    height: 97px;
+    margin: 5px 215px 0px 215px;
+}
+
+#container1
+{
+    width: 1209px;
+    height: 180px;
+    margin: 0 18px 0px 51px;
+    padding-top: 18px;
+}
+
+#container2
+{
+    width: 100%;
+    height: 245px;
+    margin-top: 97px;
+}
+
+#container3
+{
+    width: 941px;
+    height: 245px;
+    padding-top: 12px;
+    background: url('../img/ui/field/vc.png') no-repeat;
+    position: relative;
+}
+
+h3
+{
+	text-align: left;
+	font-size: 30px;
+	font-weight: bold;
+	color: #2268c6;
+	position: absolute;
+	height: 40px;
+	top: -40px;
+	left: 0;
+}
+
+.emoney {
+background: #555555;
+width: 941px;
+height: 104px;
+z-index: 1000;
+position: absolute;
+margin-top: 350px;
+margin-left: 0px;
+background: url('../img/ui/ya.gif') no-repeat;
+display: none;
+text-align: left;
+font-size: 100%;
+padding: 10px 10px 10px 10px;
+color: #fefefe;
+
+}
+
+.currency-panel { display: block; width: 250px !important; background: url('img/ui/currency.panel.back.gif') top center no-repeat; }
+.currency-panel .title, .currency-panel .element, .currency-panel .ender { display: block; clear: both; }
+.currency-panel .title { font-size: 130%; padding: 20px 20px 15px 20px; color: #787878; text-align: center;  }
+.currency-panel .element { padding: 15px 0; margin: 0 20px; overflow: hidden; }
+.currency-panel .element strong, .currency-panel .element small { float: left; color: #444444; }
+.currency-panel .element strong { font-size: 240%; font-weight: bold; margin-right: 10px; }
+.currency-panel .element small { font-size: 140%; margin-top: 8px; }
+.currency-panel .element.bt { border-top: 1px solid #fff; }
+.currency-panel .element.bb { border-bottom: 0px solid #a2a2a2; }
+.currency-panel .ender { height: 30px; background: url('img/ui/currency.panel.back.gif') bottom left no-repeat; }

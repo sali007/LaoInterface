@@ -1,0 +1,215 @@
+﻿@import url("base.css");
+
+.init_l
+{
+    float: left;
+}
+
+.init_r
+{
+    float: right;
+}
+
+.init
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.framework
+{
+    width: 18px;
+    height: 18px;
+    float: left;
+}
+
+.max
+{
+    width: 100%;
+    height: 100%;
+}
+
+.btn_cl
+{
+    width: 301px;
+    height: 121px;
+    float: left;
+}
+
+.btn_cr
+{
+    width: 301px;
+    height: 121px;
+    float: right;
+}
+
+#content
+{
+    width: 1280px;
+    height: 1024px;
+}
+
+#container1
+{
+    width: 1262px;
+    height: 998px;
+    margin: 18px 10px 8px 10px;
+}
+
+#container2
+{
+    width: 100%;
+    height: 121px;
+}
+
+#container3
+{
+    width: 1244px;
+    height: 121px;
+    margin-top: 30px;
+    margin-left: 9px;
+}
+
+#container4
+{
+    width: 880px;
+    height: 82px;
+    margin-top: 6px;
+}
+
+#container5
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 643px;
+}
+
+#container6
+{
+    width: 395px;
+    height: 643px;
+}
+
+#container7
+{
+    width: 365px; 
+    height: 473px;
+    margin-left: 6px;
+    background: url('../img/ui/vc/pole.gif') no-repeat;
+}
+
+#container8
+{
+    width: 395px; 
+    height: 643px; 
+    float: right;
+}
+
+#field_bg_l
+{
+    width: 26px;
+    height: 121px;
+    background: url('../img/ui/field/l_cel.gif') no-repeat;
+}
+
+#field_bg_c
+{
+    width: 880px;
+    height: 121px;
+    background: url('../img/ui/field/c_cel.gif');
+}
+
+#field_bg_r
+{
+    width: 26px;
+    height: 121px;
+    background: url('../img/ui/field/r_cel.gif') no-repeat;
+}
+
+#btn_del
+{
+    width: 301px;
+    height: 121px;
+    margin-right: 1px;
+}
+
+#btn_back
+{
+    width: 301px;
+    height: 121px;
+    float: left;
+    margin-top: 45px;
+}
+
+#btn_forward
+{
+    width: 301px;
+    height: 121px;
+    margin-top: 46px;
+    margin-right: 1px;
+}
+
+#keyboard
+{
+    width: 470px; height: 623px; 
+    float: left;
+    margin-top: 0px;
+    margin-left: 2px;
+}
+
+#qiwi_logo
+{
+    width: 86px;
+    height: 140px;
+    float: left;
+    margin-top: 24px;
+    background: url('../img/ui/qiwicel.gif') no-repeat;
+
+}
+
+#logo_container
+{
+    width: 241px; 
+    height: 131px; 
+    margin-top: 15px; 
+    background: url('../img/ui/vc/logo.gif') no-repeat;
+}
+
+#number
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    width: 880px;
+    height: 70px;
+    font-size: 70px;
+    font-weight: bold;
+    color: #2268c6;
+    margin-top: 2px;
+}
+
+#title
+{
+    width: 300px;
+    height: 30px;
+    margin-left: 40px; 
+    font-size: 22px; 
+    color: White;
+}
+
+#advert_1
+{
+    width: 1090px; 
+    height: 180px; 
+    float: right;
+    overflow: hidden;
+}
+
+#advert_2
+{
+    width: 364px; 
+    height: 472px; 
+    float: right;
+    margin-right: 7px;
+    overflow: hidden;
+}

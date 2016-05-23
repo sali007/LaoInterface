@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>Online_Auth_Error</title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+	<meta http-equiv="refresh" content="180; URL=./index.html" />
+	<link rel="stylesheet" href="./css/online_auth_error.css" type="text/css" />
+	<script type="text/javascript" src="./js/engine/utils.js"></script>
+	<script type="text/javascript" src="./js/engine/storage.js"></script>
+	<script src="./js/lang/str_F1.js"></script>
+    <script src="./js/lang/str_FC.js"></script>
+	<script type="text/javascript">
+	
+	
+	function init(){
+	
+	       var sLang = storage.get("language");
+       if(sLang == "F1"){
+      
+       $("btn_center_F1").style.display = "block";
+       
+     
+       }
+       else {
+       
+       $("btn_center_FC").style.display = "block";
+       
+       }
+	}
+
+        function onMenuBtnClick(sBtn)
+        {
+            switch (sBtn)
+            {
+                case "MENU":
+                    document.location.href = "./index.html";
+                break;
+            }
+        }
+
+	</script>
+</head>
+<body onLoad="init();">
+<div id="content">
+    <div style="height: 160px"></div>
+    <div id="img"></div>
+    <div id="msg">
+        <form id="ff" name="ff" method="post" action="#">
+            <input id="auth_msg" name="auth_msg" class="inp w_100 t_a_c" type="text" value="" />
+        </form>
+    </div>
+    
+    
+<div id="bottom_menu">
+        <div id="btn_center_F1" style="display:none;" class="bottom-button-center">
+        <img alt=""  src="./img/ui/navigation/menu_F1.gif"; onClick="onMenuBtnClick('MENU');" />
+        </div>
+        <div id="btn_center_FC" style="display:none;" class="bottom-button-center">
+        <img alt=""  src="./img/ui/navigation/menu_FC.gif"; onClick="onMenuBtnClick('MENU');" />
+        </div> 
+    
+    </div>
+	
+	
+</div>
+</body>
+</html>

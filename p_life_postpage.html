@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>provider / 180</title>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="refresh" content="180; URL=./index.html">
+
+    <script type="text/javascript" src="./js/engine/utils.js"></script>
+
+    <script type="text/javascript" src="./js/engine/base.js"></script>
+
+    <script type="text/javascript" src="./js/engine/storage.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_F1.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_FC.js"></script>
+
+    <script type="text/javascript">
+	
+	function start()
+    {
+    getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
+        var s = storage.get("summok") + " " + UIProvider.curNom;
+            document.getElementById('_receipt_').value = s;
+        ff.submit();
+    }
+    </script>
+
+</head>
+<body onload="start();">
+    <form name="ff" id="ff" method="post" action="./ok.html">
+
+    <script type="text/javascript">document.write(getStr("life"));</script>
+
+    </form>
+</body>
+</html>

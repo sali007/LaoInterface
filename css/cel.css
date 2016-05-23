@@ -1,0 +1,301 @@
+﻿@import url("base.css");
+
+.init_l
+{
+    float: left;
+}
+
+.init_r
+{
+    float: right;
+}
+
+.init
+{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.framework
+{
+    width: 18px;
+    height: 18px;
+    float: left;
+}
+
+.max
+{
+    width: 100%;
+    height: 100%;
+}
+
+.btn_cl
+{
+    width: 301px;
+    height: 121px;
+    float: left;
+}
+
+.btn_cr
+{
+    width: 301px;
+    height: 121px;
+    float: right;
+}
+
+#container1
+{
+    width: 1240px;
+    margin-left: 20px;
+    padding-top: 18px;
+}
+
+#container2
+{
+    width: 100%;
+    height: 150px;
+    margin-top: 30px;
+}
+
+#container3
+{
+    width: 1244px;
+    height: 121px;
+}
+
+#container4
+{
+    width: 880px;
+    height: 82px;
+    margin-top: 6px;
+}
+
+#container5
+{
+    width: 1262px;
+    height: 643px;
+}
+
+#container6
+{
+    width: 375px;
+    height: 643px;
+    position: relative;
+}
+#container404
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 365px;
+	height: 643px;
+	visibility: hidden;
+}
+
+#container7
+{
+    width: 365px; 
+    height: 473px;
+    background: url('../img/ui/vc/pole.gif') no-repeat;
+}
+#container7.undefined
+{
+    background-image: url('../img/ui/vc/pole_undefined.gif');
+}
+
+#container8
+{
+    width: 385px; 
+    height: 643px; 
+    padding-right: 20px;
+    float: right;
+    overflow: hidden;
+}
+
+#field_bg_l
+{
+    width: 26px;
+    height: 121px;
+    background: url('../img/ui/field/l_cel.gif') no-repeat;
+}
+
+#field_bg_c
+{
+    width: 880px;
+    height: 121px;
+    background: url('../img/ui/field/c_cel.gif');
+}
+
+#field_bg_r
+{
+    width: 26px;
+    height: 121px;
+    background: url('../img/ui/field/r_cel.gif') no-repeat;
+}
+
+#btn_del
+{
+    width: 301px;
+    height: 121px;
+    margin-right: 1px;
+}
+
+
+#btn_back
+{
+    width: 301px;
+    height: 121px;
+    float: left;
+    margin-top: 40px;
+}
+
+
+#btn_back_FC
+{
+    width: 301px;
+    height: 121px;
+    float: left;
+    margin-top: 40px;
+}
+
+#btn_forward
+{
+    width: 301px;
+    height: 121px;
+    margin-top: 40px;
+    margin-right: 1px;
+}
+
+
+
+
+#btn_forward_FC
+{
+    width: 301px;
+    height: 121px;
+    margin-top: 40px;
+    margin-right: 1px;
+}
+
+#keyboard
+{
+    width: 470px; height: 623px; 
+    float: left;
+    margin-top: 0px;
+    margin-left: 2px;
+}
+#keyboard img
+{
+	width: 146px;
+	height: 146px;
+}
+
+#qiwi_logo
+{
+    
+    width: 88px;
+    height: 140px;
+    float: left;
+    margin-top: 24px;
+    /*background: url('../img/ui/EasyPay-logo.png') no-repeat;*/
+
+}
+
+
+
+#logo_container
+{
+    width: 300px; 
+    height: 131px; 
+    margin-top: 15px; 
+}
+
+#number
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    width: 880px;
+    height: 70px;
+    font-size: 70px;
+    font-weight: bold;
+    color: #2268c6;
+    margin-top: 2px;
+}
+
+#title
+{
+    width: 500px;
+    height: 30px;
+    margin-left: 40px; 
+    font-size: 22px; 
+    color: White;
+}
+
+#advert_1
+{
+    width: 1090px; 
+    height: 180px; 
+    float: right;
+    overflow: hidden;
+}
+
+#banner
+{
+    width: 1090px; 
+    height: 180px; 
+    float: right;
+    overflow: hidden;
+}
+
+#advert_2
+{
+    width: 364px; 
+    height: 472px; 
+    float: right;
+    margin-right: 7px;
+    overflow: hidden;
+}
+
+.orange-line
+{
+	width: 1px;
+	height: 100%; 
+	background: #ff6622; 
+	float: left;
+}
+.enter-rules
+{
+	width: 283px; 
+	float: right; 
+	font-weight: normal; 
+	color: #8d8d8d; 
+	color: #ff6622; 
+	font-size: 18px;
+}
+
+#num_info
+{
+	width: 283px; 
+	float: right; 
+	margin-top: 10px; 
+	display: none;
+}
+#num_info_txt
+{
+	font-weight: normal; 
+	margin-top: 35px; 
+	color: #f27444; 
+	color: #ff6622; 
+	font-size: 19px;
+	padding-right: 10px;
+}
+
+
+
+
+
+
+
+
+

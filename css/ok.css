@@ -1,0 +1,145 @@
+﻿@import url("base.css");
+
+.advert1
+{
+    width: 610px;
+    height: 390px;
+    float: left;
+}
+
+.advert2
+{
+    width: 400px;
+    height: 200px;
+    float: left;
+}
+
+#num_txt
+{
+    width: 880px;
+    height: 71px;
+    margin-top: 147px;
+    overflow: hidden;
+}
+
+#num_inp
+{
+    width: 880px;
+    height: 73px;
+    text-align: left;
+    color: #2268c6;
+    font-weight: normal;
+    font-size: 63px;
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    margin-left: 40px;
+    background: #FFFFFF;
+}
+
+#contener_summ
+{
+    width: 940px;
+    height: 70px;
+    float: left;
+    margin-top: 18px;
+    padding-left: 635px;
+}
+
+#summ_txt
+{
+    width: 290px;
+    height: 70px;
+    float: left;
+    color: #ff6226;
+    font-weight: normal;
+    font-size: 65px;
+}
+
+#advert_2
+{
+    margin-left: 20px;
+}
+
+#advert_4
+{
+    margin-left: 20px;
+}
+
+#advert_5
+{
+    margin-left: 20px;
+}
+
+#contener1
+{
+    width: 1280px;
+    height: 390px;
+    padding-left: 20px;
+    padding-top: 19px;
+}
+
+#contener2
+{
+    width: 1280px;
+    height: 324px;
+    padding-left: 42px;
+    margin-top: 13px;
+}
+
+#contener3
+{
+    width: 1280px;
+    height: 110px;
+    padding-left: 20px;
+    margin-top: 13px;
+}
+
+#contener4
+{
+    width: 1280px;
+    height: 390px;
+    padding-left: 20px;
+    padding-top: 19px;
+}
+
+#slogan, #thanks, #account, #to_account {
+    position: absolute;
+    color: #FFFFFF;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+#slogan {
+    left: 530px;
+    top: 302px;
+    font-size: 30px ;
+}
+
+#thanks {
+    left: 190px;
+    top: 395px;
+    font-size: 30px ;
+}
+
+#account {
+    top: 551px;
+    left: 190px;
+    font-size: 30px ;
+}
+
+#to_account {
+    top: 555px;
+    left: 580px;
+    font-size: 30px ;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,289 @@
+<html>
+<head>
+    <title>Validate_Confirm</title>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="refresh" content="180; URL=./index.html" />
+    <link rel="stylesheet" href="./css/validate_confirm.css" type="text/css" />
+
+    <script type="text/javascript" src="./js/engine/utils.js"></script>
+
+    <script type="text/javascript" src="./js/engine/base.js"></script>
+
+    <script type="text/javascript" src="./js/engine/storage.js"></script>
+
+    <script type="text/javascript" src="./js/engine/advert.js"></script>
+
+    <script type="text/javascript" src="./advert_content.js"></script>
+
+    <script type="text/javascript" src="./js/engine/hyphen.js"></script>
+
+    <script src="./js/lang/str_F1.js"></script>
+
+    <script src="./js/lang/str_FC.js"></script>
+
+    <script type="text/javascript">
+        var g_sPrvType = '',
+            logo;
+            
+            
+            
+
+            
+            
+            
+function init() {  
+
+
+
+            
+            
+            
+            
+            
+//	var prvId = storage.get("provider");
+//	if(prvId)
+//	{
+//		getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
+//	}
+//	else
+//	{
+//	//        ===== Convert Custom =====
+//	    var oCastom = Object.deserialize(storage.get("custom_provider"));
+//	    if (oCastom == null)
+//		    top.location.href = "./index.html";
+//		else {
+//		    (new CJsDataProvider).modifyProvider(oCastom);
+//		    var page = newObject(CProviderPage, null, null, null, "page", "content", oCastom);
+//            page.render();
+//		}
+//	}
+
+
+
+
+
+
+    
+       var sLang = storage.get("language");
+       if(sLang == "F1"){
+       $("btn_left_F1").style.display = "block";
+       $("btn_center_F1").style.display = "block";
+       $("btn_right_F1").style.display = "block";
+       document.getElementById('title').innerHTML = 'Подтвердите правильность введенных данных';
+       }
+       else {
+       $("btn_left_FC").style.display = "block";
+       $("btn_center_FC").style.display = "block";
+       $("btn_right_FC").style.display = "block";
+
+     document.getElementById('title').innerHTML = 'curs'; 
+       document.getElementById('title').innerHTML = 'Confirm that entered data are correct ';      
+       }   
+            var oPayInfo = Object.deserialize(storage.get("pay_info"));
+            
+//            var prvId = storage.get("provider");
+
+//            if (prvId == 8814 || prvId == 8793) {
+//            $("emoney").style.display = "block";
+//            }
+            
+            
+            
+            logo = $("logo");
+            logo.img = logo.getElementsByTagName('div')[0];
+            logo.alt = logo.getElementsByTagName('p')[0];
+
+            if($isNoU(oPayInfo))
+            {
+                document.location.href = "./index.html";
+            }
+            displayPayInfo(oPayInfo);
+            storage.put("pay_info", oPayInfo.serialize());
+
+            startAdvert("Validate_Confirm");
+            
+             var sLang = storage.get("language");
+
+		new CInnerShadow($('btn_left_F1').getElementsByTagName('img')[0], { color: 30 });
+		new CInnerShadow($('btn_center_F1').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+		new CInnerShadow($('btn_right_F1').getElementsByTagName('img')[0], { color: 30 });
+		new CInnerShadow($('btn_left_FC').getElementsByTagName('img')[0], { color: 30 });
+		new CInnerShadow($('btn_center_FC').getElementsByTagName('img')[0], { saturation: 1, brightness: 200 });
+		new CInnerShadow($('btn_right_FC').getElementsByTagName('img')[0], { color: 30 });
+        }
+        function displayPayInfo(oInfo) {
+            var aInnPhone = [];
+            if (isCorrect(oInfo.account)) {
+                if (isCorrect(oInfo.isCellular)) {
+                    if (oInfo.isCellular == "true") {
+                        g_sPrvType = oInfo.isCharity ? 'CHARITY' : 'CELLULAR';
+
+                        if(g_sPrvType == 'CHARITY' && oInfo.account == '0000000000')
+                        {
+                        	onMenuBtnClick('FORWARD');
+                        	return;
+                        }
+                        oInfo.account =
+                            "(" + oInfo.account.substr(0, 3) + ")" +
+                            oInfo.account.substr(3, 3) + "-" +
+                            oInfo.account.substr(6, 2) + "-" +
+                            oInfo.account.substr(8, 2);
+                    }
+                    else if (oInfo.isCellular == "false") {
+                        g_sPrvType = "OTHER";
+                    }
+                }
+                $("field_inp").value = oInfo.account;  
+                 
+            }
+            else {
+                document.location.href = "./index.html";    
+            }           
+            if (isCorrect(oInfo.prvLogo) && oInfo.prvLogo != "null.gif") {
+                logo.img.style.backgroundImage = "url('./img/ui_item/" + getFileName(oInfo.prvLogo) + "')";
+                if (isCorrect(oInfo.prvName)) {
+                    logo.alt.innerHTML = autohyphen.hyphenizeText(oInfo.buttonName || oInfo.prvName);
+                }
+            }
+            else if (g_sPrvType == "CELLULAR") {
+                logo.img.style.backgroundImage = "url('./img/ui/cellular.gif')";
+            }
+            else if (isCorrect(oInfo.prvName)) {
+                var oLogoDiv = $("logo_bg");
+                oLogoDiv.innerHTML = 
+                    '<table width="100%" height="100%">' +
+                    '  <tr><td align="center" valign="middle">' + oInfo.prvName + '</td></tr>' +
+                    '</table>';
+            }
+            logo.alt.style.marginTop = (logo.alt.parentNode.clientHeight - logo.alt.clientHeight) / 2 + 'px';
+        }
+
+ function displayAlertMsg(sInfo) {
+            if (isCorrect(sInfo)) {
+                var sAlertContent =
+                    '<div class="alert" style="left: ' + (screen.width - 801) / 2 + 'px; top: ' + (screen.height - 482) / 2 + 'px;">' +
+                    '  <div class="alert_header">Внимание</div>' +
+                    '  <div class="alert_msg">' + sInfo + '</div>' +
+                    '  <div class="alert_footer">Если Вы согласны, нажмите «ВПЕРЕД» для оплаты<br />или нажмите «НА ГЛАВНУЮ» для отмены операции</div>' +
+                    '</div>';
+                document.body.innerHTML += sAlertContent;    
+            }
+        } 
+
+function isCorrect(s) {
+            return (!$isNoU(s) && s.is(String) && s.length > 0);
+        }
+
+function onMenuBtnClick(sBtn) {
+        var sLang = storage.get("language");
+        
+            var sAlertMsg = $("payment_info").value;
+            switch (sBtn) {
+                case "BACKWARD":
+                    if (g_sPrvType == "CHARITY") {
+                    	document.location.href = "./charity.html"; 	
+                    }
+                    else if (g_sPrvType == "CELLULAR") {
+                        storage.put("provider", "null");
+                        document.location.href = "./cellular.html";                     
+                    }
+                    else if (g_sPrvType == "OTHER") {
+                        document.location.href = "./provider.html";                 
+                    }
+                    else {
+                        document.location.href = "./main.html";                     
+                    }
+                    storage.put("pay_info", "null");
+                    break;
+                case "MENU":
+                    document.location.href = "./index.html";                
+                    storage.put("pay_info", "null");
+                    break;
+                case "FORWARD":
+                    if (sAlertMsg.length > 0) {
+                        $("payment_info").value = "";
+                        displayAlertMsg(sAlertMsg);
+                    }
+                    document.location.href = "./enter_summ.html";
+                    break;
+            }            
+        }
+        
+        
+        
+    </script>
+
+</head>
+<body onload="init();">
+    <div>
+
+        <script type="text/javascript">document.write(getStr("sound_validate"));</script>
+
+    </div>
+    <div id="content">
+        <div id="container1">
+            <div id="advert_1">
+            </div>
+        </div>
+        <div id="work_place">
+            <div id="container2" align="center">
+                <div id="title" style="font-size: 30px; font-weight: bold; color: white;">
+                </div>
+                
+                
+<!--                <div id="emoney" class="emoney">
+                <p></p><br />
+                <p>Сумма(руб.):</p>
+                <p>Курс:</p>
+                <p>Инфо:</p>
+                
+                </div>-->
+                
+                
+                <div id="container3">
+                    <div id="field_txt">
+                        <input id="field_inp" name="field_inp" value="" /></div>
+
+                    <div class="provider-button" id="logo" style="background-image: url('./img/ui/vc/logo3.gif')">
+                        <div>
+                        </div>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="sys_info">
+                <form id="ff" name="ff" method="post" action="#">
+                <input id="payment_info" name="payment_info" type="hidden" value="" />
+                <!--<input id="ahtung_printer1" name="ahtung_printer1" class="msg" type="text" value="" />
+                <input id="ahtung_printer2" name="ahtung_printer2" class="msg" type="text" value="" />
+                <input id="ahtung_printer3" name="ahtung_printer3" class="msg" type="text" value="" />-->
+                </form>
+            </div>
+            <div id="advert_2">
+            </div>
+        </div>
+        <div id="bottom_menu">
+            <div id="btn_left_F1" style="display: none;" class="bottom-button-left">
+                <img src="./img/ui/navigation/back_F1.gif" onclick="onMenuBtnClick('BACKWARD') " />
+            </div>
+            <div id="btn_left_FC" style="display: none;" class="bottom-button-left">
+                <img src="./img/ui/navigation/back_FC.gif" onclick="onMenuBtnClick('BACKWARD') " />
+            </div>
+            <div id="btn_center_F1" style="display: none;" class="bottom-button-center">
+                <img src="./img/ui/navigation/menu_F1.gif" onclick="onMenuBtnClick('MENU')" />
+            </div>
+            <div id="btn_center_FC" style="display: none;" class="bottom-button-center">
+                <img src="./img/ui/navigation/menu_FC.gif" onclick="onMenuBtnClick('MENU')" />
+            </div>
+            <div id="btn_right_F1" style="display: none;" class="bottom-button-right">
+                <img src="./img/ui/navigation/forward_F1.gif" onclick="onMenuBtnClick('FORWARD')" />
+            </div>
+            <div id="btn_right_FC" style="display: none;" class="bottom-button-right">
+                <img src="./img/ui/navigation/forward_FC.gif" onclick="onMenuBtnClick('FORWARD')" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

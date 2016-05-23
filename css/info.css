@@ -1,0 +1,338 @@
+﻿@import url("base.css");
+
+/*body, div, span, table, a 
+{
+    overflow: hidden;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: bold;
+}*/
+p
+{
+    font-size: 16px;
+}
+input
+{
+    text-align: center;
+    border: 0px;
+}
+
+
+.l_p
+{
+    font-size: 12px;
+}
+
+.menu_btn_on
+{
+    width: 282px;
+    height: 87px;
+    background: url('../img/ui/info/3btnorange_press.gif') no-repeat;
+    margin-bottom: 20px;
+}
+
+.menu_txt_on
+{
+    padding: 30px 0 20px 40px;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: normal;
+    display: block;
+}
+
+.menu_btn_off
+{
+    width: 282px;
+    height: 87px;
+    background: url('../img/ui/info/3btnorange_unpress.gif') no-repeat;
+    margin-bottom: 20px;
+}
+
+.menu_txt_off
+{
+    padding: 30px 0 20px 40px;
+    color: #3b99d2;
+    font-size: 26px;
+    font-weight: normal;
+    display: block;
+}
+
+/* .hor_rect
+{
+    width: 804px;
+    height: 20px;
+    background: #f2f0f0;
+}
+
+.bg_lt
+{
+    background: url('../img/ui/angles_cel_info.gif') no-repeat;
+
+}
+
+.bg_rt
+{
+    background: url('../img/ui/angles_cel_info.gif') -20px 0px no-repeat;
+
+}
+
+.bg_lb
+{
+    background: url('../img/ui/angles_cel_info.gif') 0px -20px no-repeat;
+
+}
+
+.bg_rb
+{
+    background: url('../img/ui/angles_cel_info.gif') -20px -20px no-repeat;
+
+}
+
+
+
+.round_line
+{
+    width: 100%;
+    height: 20px;
+}
+
+.angle
+{
+    width: 20px;
+    height: 20px;
+}
+*/
+
+.cont_txt
+{   position: absolute;
+    margin: 0px 20px 0px 20px;
+    width: 804px;
+    height: 100%;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8d8d8d;
+    display: none;
+}
+
+.off_txt
+{
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+}
+
+.cont_off
+{
+    width: 100%;
+    height: 539px;
+}
+
+.par
+{
+    width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 15px 15px 15px 15px;
+    border-bottom: #e7e5e5 solid 1px;
+}
+
+.par .f_r {
+    color: #FFFFFF;
+}
+
+.par2
+{
+    width: 100%;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.inp
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    width: 500px;
+    background: transparent;
+    text-decoration: none;
+    text-align: right;
+    font-size: 14px;
+}
+
+.arrow
+{
+    width: 95px;    
+    height: 95px;
+    display: none;    
+}
+
+#work_place
+{
+    margin: 30px 20px 0;
+    width: 1220px;
+    height: 704px;
+}
+
+#bottom_menu
+{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 1280px;
+    padding: 0px 30px 15px 30px;
+}
+
+#content
+{
+    width: 1280px;
+    height: 1024px;
+}
+
+#title
+{
+    width: 1240px;
+    clear: both;
+    margin-left: 20px;
+    text-align: center;
+    color: #ffffee;
+    margin-top: 50px;
+
+
+}
+
+#title_text_div {
+    font-size: 60px;
+    font-weight: bold;
+
+
+}
+
+#menu
+{
+    width: 270px;
+    height: 100%;
+}
+
+#title_right {
+    width: 25px;
+}
+
+#info
+{
+    width: 844px;
+    height: 705px;
+}
+
+#info_cont
+{
+
+    width: 100%;
+
+    height: 665px;
+    overflow: hidden;
+}
+
+#phone2
+{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#cont_off_place
+{
+    width: 100%;
+    height: 555px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#arrow_left
+{
+    background: url('../img/ui/info/arrowleft.gif') no-repeat;
+}
+
+#arrow_right
+{
+    background: url('../img/ui/info/arrowright.gif') no-repeat;
+}
+
+#btn_4
+{
+    overflow: hidden;
+}
+
+#btn_6
+{
+    display: block;
+}
+
+#btn_7
+{
+    display: block;
+}
+
+#requisite
+{
+    padding: 20px 0 20px 7px;
+    color: #3b99d2;
+    font-size: 18px;
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+}
+
+#cont_3 p
+{
+	margin-bottom: 8px;
+}
+
+
+.offer1,
+.offer2
+{
+	font-weight: inherit;
+	font-weight: normal;
+	font-size: inherit;
+	display: none;
+}
+.offer1_show ins
+{
+	display: none;
+}
+.offer2_show ins
+{
+	text-decoration: none;
+	display: inline;
+}
+.offer1_show .offer1
+{
+	display: block;
+}
+.offer2_show .offer2
+{
+	display: block;
+}
+
+
+#cont_off_arrows
+{
+	height: 100px;
+	overflow: hidden;
+}
+
+.f_l, .f_r, {
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+.inp {
+    color: #f86a2c;
+    font-size: 18px;
+}
+
+
+

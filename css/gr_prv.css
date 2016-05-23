@@ -1,0 +1,141 @@
+﻿@import url("base.css");
+
+body
+{
+	margin: 0px; 
+	padding: 0px; 
+	border: 0px; 
+    background: url('../img/ui/index/background2.jpg') no-repeat center;
+        width: 1280px;
+        height: 1024px;
+        background-size: cover;
+}
+
+/*---------------------------Classes-------------------------------------*/
+.btn_div
+{
+    height: 190px;
+    margin: 10px 0px 10px 0px;
+}
+.nav_btn
+{
+    width: 33%;
+    height: 124px;
+}
+
+/*-----------------------------ID's--------------------------------------*/
+#body_tbl
+{
+    height: 824px;
+}
+#nav_menu
+{
+    height: 140px;
+}
+#workspace
+{
+}
+#btn_menu
+{
+    width: 34%;
+}
+
+.qwerty-keyboard
+{
+	width: 1040px;
+	text-transform: uppercase;
+	display: none;
+	position: relative;
+	left: 50%;
+	margin-left: -520px;
+}
+.qwerty-keyboard table
+{
+	width: 100%;
+	table-layout: fixed;
+	color: white;
+	margin-bottom: 10px;
+}
+.qwerty-keyboard table span
+{
+	display: block;
+	background: url('../img/ui/keyboard/search/blue_btn_on.gif') no-repeat center;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	font-size: 48px;
+	font-weight: bold;
+	line-height: 70px;
+	text-transform: uppercase;
+}
+.qwerty-keyboard table .dig,
+.qwerty-keyboard table #returnBoard,
+.qwerty-keyboard table .eng,
+.qwerty-keyboard table .rus
+{
+	width: 120px;
+}
+.qwerty-keyboard table .dig span,
+.qwerty-keyboard table #returnBoard span,
+.qwerty-keyboard table .eng span,
+.qwerty-keyboard table .rus span,
+.qwerty-keyboard table .space span
+{
+	background-image: url('../img/ui/keyboard/search/orange_btn_on.gif');
+	width: 110px;
+	font-size: 32px;
+}
+.qwerty-keyboard table .space span
+{
+	float: right;
+}
+.qwerty-keyboard table #returnBoard span
+{
+	float: none;
+}
+.qwerty-keyboard table .space,
+.qwerty-keyboard table .space span
+{
+	width: 310px;
+}
+.qwerty-keyboard table .space span
+{
+	background-image: url('../img/ui/keyboard/search/space_on2.gif');
+}
+.qwerty-keyboard table #returnBoard,
+.qwerty-keyboard table .dig,
+.qwerty-keyboard table #returnBoard span,
+.qwerty-keyboard table .dig span
+{
+	width: 110px;
+}
+
+#page_field
+{
+	width: 100%; 
+	height: 66px; 
+	text-align: left; 
+	color: #2268c6;
+	font-size: 50px; 
+	font-weight: normal; 
+	margin-top: 15px;
+	text-transform: uppercase;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

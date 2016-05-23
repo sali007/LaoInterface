@@ -1,0 +1,854 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+	<meta http-equiv="pragma" content="no-cache" />
+   	<style>
+		* { padding: 0; margin: 0; }
+		h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+		table { border-collapse: expand; border-spacing: 1; }
+		fieldset, img { border: 0; }
+		address, caption, cite, code, dfn, em, strong, th, var, optgroup {font-style: inherit; font-weight: inherit; }
+		del, ins { text-decoration: none; }
+		ul, li { list-style: none; }
+		caption, th { text-align: left; }
+		q:before, q:after { content:''; }
+		abbr, acronym { border: 0; font-variant: normal; }
+		sup { vertical-align: baseline; }
+		sub { vertical-align: baseline; }
+		legend { color: #000; }
+		input, button, textarea, select, optgroup, option { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+		input, button, textarea, select { *font-size: 100%; }
+
+		body { background: #f5f5f5; font-family: arial; font-size: 10pt;}
+		
+		.tl, .tr, .bl, .br { position: absolute; width: 20px; height: 20px; }
+		
+		.tl { top: 0; left: 0; }
+		.tr { top: 0; right: 0; }
+		.bl { bottom: 0; left: 0; }
+		.br { bottom: 0; right: 0; }
+
+		.tt, .bb, .ll, .rr { position: absolute; background: #000; }
+		
+		.tt { height: 3px; top: 0; left: 20px; right: 20px; }
+		.bb { height: 3px; bottom: 0; left: 20px; right: 20px; }
+		.ll { width: 3px; left: 0; top: 20px; bottom: 20px; }
+		.rr { width: 3px; right: 0; top: 20px; bottom: 20px; }
+	
+		.fade-wrapper{
+			display:none;
+   z-index: 10;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 100%;
+   height: 100%;
+   background-color: black;
+  
+     filter: alpha(opacity=75);
+ 
+  }
+
+		.popup-wrapper, .popup-title, .popup-content, .course-wrapper, .course-title, .course-content { display: block; clear: both;  }
+		
+		.popup-wrapper, .course-wrapper { width: 980px; margin: 100px auto 0 auto; overflow: hidden; }
+		
+			.popup-title, .popup-content, .course-title, .course-content { position: relative; }
+
+			.popup-title { width: 85%; height: 55px; z-index: 51; margin: 0 auto -25px auto; }
+			.course-title { width: 85%; height: 80px; z-index: 51; margin: 0 auto -25px auto; }
+			.course-title { background: #2d68b4; }
+			.popup-title { background: #f86a2c; }
+
+			.popup-content { width: 100%; background: #fff; padding: 50px 0 0 0; z-index: 50; }
+			.course-content { width: 100%; background: #2d68b4 url('currency_background.png') left top repeat-x; padding: 50px 0 30px 0; }
+			
+			.popup-title .panel, .course-title .panel { display: block; clear: both; text-align: center; color: #fff; padding: 15px; font-size: 160%; }
+
+			.popup-title .tl { left: -20px; background: url('currency_round.png') left -291px no-repeat;  }
+			.popup-title .tr { right: -20px; background: url('currency_round.png') right -291px no-repeat;  }
+			.popup-title .bl { left: -20px; background: url('currency_round.png') left -311px no-repeat;  }
+			.popup-title .br { right: -20px; background:  url('currency_round.png') right -311px no-repeat;  }
+
+			.popup-title .ll, .popup-title .rr { width: 20px; background: #f86a2c; }
+			.popup-title .ll { left: -20px; }
+			.popup-title .rr { right: -20px; }
+			
+		    .course-title .tl { background: url('currency_round.png') left 0 no-repeat;  }
+			.course-title .tr { background: url('currency_round.png') right 0 no-repeat;  }
+			.course-title .bl { background: url('currency_round.png') left -60px no-repeat;  }
+			.course-title .br { background: url('currency_round.png') right -60px no-repeat;  }
+
+			.course-content .tl { background: url('currency_round.png') left 0 no-repeat;  }
+			.course-content .tr { background: url('currency_round.png') right 0 no-repeat;  }
+			.course-content .bl { background: url('currency_round.png') left -20px no-repeat;  }
+			.course-content .br { background: url('currency_round.png') right -20px no-repeat;  }
+
+			.popup-content .tl { left: -20px; background: url('currency_round.png') left -120px no-repeat;  }
+			.popup-content .tr { right: -20px; background: url('currency_round.png') right -120px no-repeat;  }
+			.popup-content .bl { left: -20px; background: url('currency_round.png') left -140px no-repeat;  }
+			.popup-content .br { right: -20px; background: url('currency_round.png') right -140px no-repeat;  }
+			.popup-content .ll, .popup-content .rr { width: 20px; background: #fff; }
+			.popup-content .ll { left: -20px; }
+			.popup-content .rr { right: -20px; }
+			
+			.popup-content .panel, .course-content .panel { display: block; position: relative; margin: 0 0 20px 20px; color: #fff; font-size: 160%; }
+			.popup-content .panel { clear: both; padding: 0px; }
+			.course-content .panel { float: left; clear: left; width: 350px; padding: 15px; }
+
+			.popup-content table { width: 98%; color: #666; }
+			.popup-content table th, .popup-content table td { padding: 10px; }
+			.popup-content .gray td { background: #f5f5f5; }
+			.popup-content table .price { text-align: right; color: #333; border-left: 3px solid #f5f5f5 }
+			.popup-content table .price.huge { text-align: right; font-size: 180%; }
+
+			.popup-content .button, .course-content .panel.money .button { display: block; float: right; position: relative; margin: 20px 0 0 0; cursor: pointer; color: #fff; }
+			.popup-content .button { padding: 30px; }
+			
+			.popup-content .tl {left: -20px; background: url('currency_round.png') left -120px no-repeat; }
+			
+			.course-content .panel.money .button { padding: 20px; }
+			.popup-content .button, .course-content .panel.money .button { background: #000 url('currency_round.png') left -200px repeat-x; }
+			.popup-content .button .tl, .course-content .panel.money .button .tl { top: 0; left: 0; background: url('currency_round.png') left -160px no-repeat; }
+			.popup-content .button .tr, .course-content .panel.money .button .tr { top: 0; right: 0; background: url('currency_round.png') right -160px no-repeat; }
+			.popup-content .button .bl, .course-content .panel.money .button .bl { bottom: 0; left: 0; background: url('currency_round.png') left -180px no-repeat; }
+			.popup-content .button .br, .course-content .panel.money .button .br { bottom: 0; right: 0; background: url('currency_round.png') right -180px no-repeat; }
+
+			
+			.course-content .panel .tl { background: url('currency_round.png') left -80px no-repeat;  }
+			.course-content .panel .tr { background: url('currency_round.png') right -80px no-repeat;  }
+			.course-content .panel .bl { background: url('currency_round.png') left -100px no-repeat;  }
+			.course-content .panel .br { background: url('currency_round.png') right -100px no-repeat;  }
+			
+			.course-content .panel .tt, .course-content .panel .rr, .course-content .panel .bb, .course-content .panel .ll { background: #99cbec; }
+
+			.course-content .container { display: block; clear: both; padding: 5px; margin: 0; }
+			.course-content .container.gray { background: #f5f5f5; }
+			.course-content .container input { border: 0; background: transparent; text-align: right; float: right; color: #f86a2c; }
+
+			.course-content .panel.money { width: 500px; float: right; clear: left; margin: 20px 40px 0 20px; padding: 0; color: #999; background: #fff; }
+			.course-content .panel.money .container { overflow: hidden; padding: 10px; }
+		
+			.course-content .panel.money .container input.total { width: 300px; font-size: 220%; font-weight: bold; margin: -5px 0 10px 0; }
+			
+			.course-content .panel.money .tl { top: -20px; left: -20px; background: url('currency_round.png') left -120px no-repeat; }
+			.course-content .panel.money .tr { top: -20px; right: -20px; background: url('currency_round.png') right -120px no-repeat; }
+			.course-content .panel.money .bl { bottom: -20px; left: -20px; background: url('currency_round.png') left -140px no-repeat; }
+			.course-content .panel.money .br { bottom: -20px; right: -20px; background: url('currency_round.png') right -140px no-repeat; }
+
+			.course-content .panel.money .tt, .course-content .panel.money .rr, .course-content .panel.money .bb, .course-content .panel.money .ll { background: #fff; }
+			.course-content .panel.money .tt { top: -20px; left: 0; right: 0; height: 20px; }
+			.course-content .panel.money .bb { bottom: -20px; left: 0; right: 0; height: 20px; }
+			.course-content .panel.money .rr { right: -20px; top: 0; bottom: 0; width: 20px; }
+			.course-content .panel.money .ll { left: -20px; top: 0; bottom: 0; width: 20px; }			
+
+.bottom-button-left
+{
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+.bottom-button-right
+{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.bottom-button-center
+{
+	position: absolute;
+	bottom: 20px;
+	left: 38%;
+}
+.bottom-button-left img,
+.bottom-button-center img,
+.bottom-button-right img
+{
+	display: block;
+}
+	</style>
+   
+	<script type="text/javascript" src="./js/engine/utils.js"></script>
+	<script type="text/javascript" src="./js/engine/base.js"></script>
+	<script type="text/javascript" src="./js/engine/storage.js"></script>
+	<script type="text/javascript" src="./js/engine/advert.js"></script>
+	<script type="text/javascript" src="./advert_content.js"></script>
+	<script type="text/javascript" src="./js/engine/hyphen.js"></script>
+	<script type="text/javascript" src="./js/lang/str_F1.js"></script>
+    <script type="text/javascript" src="./js/lang/str_FC.js"></script>
+<!--    <script type="text/javascript" src="./js/engine/JMath.js"></script>-->
+	<script type="text/javascript">	
+        
+        var oPayInfo = null;
+        var bIsEnterSumm = true;
+        var nCommInfoTimeout = 0;
+        var nCommInfoNum = 0;
+        
+        
+        
+        
+   
+    function init() {
+        var sLang = storage.get("language");
+        if(sLang == "F1"){
+       $("btn_right_F1").style.display = "block";
+       }
+       else 
+       if(sLang == "FC"){
+       $("btn_right_FC").style.display = "block";
+       }  
+		var oScr = detectScreen();
+		oPayInfo = Object.deserialize(storage.get("pay_info"));
+		if ($isNoU(oPayInfo))
+		{
+			document.location.href = "./index.html";
+		}
+		var sLang = storage.get("language");
+		if (sLang == "F1"){
+        $('button_payment').src = "./img/ui/navigation/menu_F1.gif";
+        }
+        else
+        if (sLang == "FC") {
+        $('button_payment').src = "./img/ui/navigation/menu_FC.gif";
+        
+        }
+		setOpacity("commission_info", 90);
+		new CInnerShadow($('btn_right_F1').getElementsByTagName('img')[0], { color: 30 });
+		new CInnerShadow($('btn_right_FC').getElementsByTagName('img')[0], { color: 30 });
+        }
+        
+                 //-------------------Курсы Таблица ----------------------               
+var valrub = 0;
+var valusd = 0;
+var valeur = 0;
+var valegp = 0;
+var valtry = 0;
+
+
+
+                  
+     function curstabv() {
+     var str1 = storage.get("cur");
+     var curs = str1.split("|");
+      for (var i = 0; i < curs.length; i++) {
+     var hrr = '';
+     if (i > 0) hrr ='<hr>';
+     if(curs[i]==643)
+    cursn = "RUB";
+     if(curs[i]==840)
+    cursn = "USD";
+     if(curs[i]==978)
+    cursn = "EUR";
+     if(curs[i]==818)
+    cursn = "EGP";
+     if(curs[i]==949)
+    cursn = "TRY";
+
+       $("curs_title_pop").innerHTML += ["&nbsp;" + cursn + "&nbsp;&nbsp;"].join('');
+}
+}
+
+
+
+
+
+
+
+function curstabvCreate() {
+
+getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
+    var str_realsumm = ff.prv_really_summ.value;
+      storage.put("prv_really_summ", str_realsumm);
+    var str = storage.get("curstab");
+    var curs = str.split("|"); 
+    var z = '';
+    var AddCash_BillName = ff.prv_AddCash_BillName.value;
+    var AddCash = ff.prv_AddCash.value;
+
+ if (AddCash_BillName == "RUB" && valrub != 0 && valrub != NaN) {
+     valrub = valrub + parseFloat(AddCash);
+}
+ else
+ if (AddCash_BillName == "RUB" && valrub == 0 || valusd == NaN){
+     valrub = parseFloat(AddCash);
+ }
+ else
+  if (AddCash_BillName == "USD" && valusd != 0 && valusd != NaN) {
+     valusd = valusd  + parseFloat(AddCash);
+ }
+ else
+ if (AddCash_BillName == "USD" && valusd == 0 || valusd == NaN){
+     valusd = parseFloat(AddCash);
+ }
+ else
+  if (AddCash_BillName == "EUR" && valeur != 0 && valeur != NaN) {
+      valeur = valeur + parseFloat(AddCash);
+ }
+ else 
+ if (AddCash_BillName == "EUR" && valeur == 0 || valeur == NaN) {
+     valeur =  parseFloat(AddCash);
+ }
+ 
+  else
+  if (AddCash_BillName == "EGP" && valegp != 0 && valegp != NaN) {
+      valegp = valegp + parseFloat(AddCash);
+ }
+ else 
+ if (AddCash_BillName == "EGP" && valegp == 0 || valegp == NaN) {
+     valegp =  parseFloat(AddCash);
+ }
+ 
+   else
+  if (AddCash_BillName == "TRY" && valtry != 0 && valtry != NaN) {
+      valtry = valtry + parseFloat(AddCash);
+ }
+ else 
+ if (AddCash_BillName == "TRY" && valtry == 0 || valtry == NaN) {
+     valtry =  parseFloat(AddCash);
+ }
+    getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
+     var str = storage.get("curstab");
+     var curs = str.split("|"); 
+    for (var i = 0; i < curs.length; i++) {
+     var a = [curs[i]].join('');
+     var cursp = a.split(";");
+     var a1= "RUB"; var a2="USD"; var a3="EUR"; var a4="EGP"; var b1; var b2; var b3; var b4; var c1; var c2; var c3; var c4; var d1; var d2;var d3; var d4;
+ 
+ if (cursp[0]== 643 && cursp[2] == 840){
+     var a1 = [cursp[1]].join('');
+     var b1 = [cursp[4]].join(''); 
+     var c1 = valrub*parseFloat(cursp[4]); 
+     var d1 = 1/parseFloat(cursp[4]); 
+     $("c1").innerHTML = c1.toFixed(4)+" USD";
+     $("d1").innerHTML = d1.toFixed(4);
+ }
+ 
+ else
+ 
+ if (cursp[0]== 840 && cursp[2] == 840){
+     var a2 = [cursp[1]].join(''); 
+     var b2 = [cursp[4]].join(''); 
+     var c2 = valusd*parseFloat(cursp[4]); 
+     var d2 = 1/parseFloat(cursp[4]); 
+  $("c2").innerHTML = c2.toFixed(4)+" USD";
+   $("d2").innerHTML = d2.toFixed(4);
+
+ }
+ else 
+ 
+ if (cursp[0]== 978 && cursp[2] == 840){
+     var a3 = [cursp[1]].join('');
+     var b3 = [cursp[4]].join('');
+     var c3 = valeur*parseFloat(cursp[4]); 
+     var d3 = 1/parseFloat(cursp[4]); 
+     $("c3").innerHTML = c3.toFixed(4)+" USD";
+     $("d3").innerHTML = d3.toFixed(4);
+ }
+ else 
+ 
+ if (cursp[0]== 818 && cursp[2] == 840){
+     var a4 = [cursp[1]].join('');
+     var b4 = [cursp[4]].join('');
+     var c4 = valegp*parseFloat(cursp[4]); 
+     var d4 = 1/parseFloat(cursp[4]); 
+     $("c4").innerHTML = c4.toFixed(4)+" USD";
+     $("d4").innerHTML = d4.toFixed(4);
+ }
+
+      var kodd = UIProvider.curId;
+      if(cursp[0] == 840 && cursp[2] == kodd){
+      var bycoursec = parseFloat(cursp[4]); 
+      
+      $("bycourse").innerHTML = getStr("by_course") + bycoursec.toFixed(4);
+      $("bycourse").style.display = "block";
+      }
+ }
+
+    $("a1").innerHTML = valrub + " " + a1;
+    $("a2").innerHTML = valusd + " " + a2;
+    $("a3").innerHTML = valeur + " " + a3;  
+    $("a4").innerHTML = valegp + " " + a4; 
+      
+
+// -----------------------------------------------------------------------------------------------------------    // Округление для Life :)    
+  if(UIProvider.id == 244)
+  {   
+  
+var SMath={
+round:function(x,y) {var y=y||0;y=Math.pow(10,y); var x = x * y; x = Math.round(x); x = x / y; return x;},
+ ceil:function(x,y) {var y=y||0;y=Math.pow(10,y); var x = x * y; x =  Math.ceil(x); x = x / y; return x;},
+floor:function(x,y) {var y=y||0;y=Math.pow(10,y); var x = x * y; x = Math.floor(x); x = x / y; return x;}
+}
+  
+  
+     getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
+  	  var fixed_real_summ_zn = UIProvider.round_math;
+      var zn_ok = fixed_real_summ_zn.split("");
+      for (var i = 0; i < zn_ok.length; i++) 
+      {
+      var zn1 = [zn_ok[i]].join('');
+      }
+      var zn_ok_vst1 = parseFloat([zn_ok[1]]);
+      var real_summ_nfixed = $('prv_really_summ').value;
+      var real_summ_fixed = parseFloat(real_summ_nfixed);
+
+       if ([zn_ok[0]].join('') == "~" ){
+          $("realval3").innerHTML = SMath.round(real_summ_fixed, zn_ok_vst1) + "&nbsp;" + UIProvider.curNom;
+   $("total_real_summ").innerHTML = SMath.round(real_summ_fixed, zn_ok_vst1) + "&nbsp;" + UIProvider.curNom;
+          }
+  else 
+       if ([zn_ok[0]].join('') == "+" ){
+          $("realval3").innerHTML = SMath.ceil(real_summ_fixed, zn_ok_vst1) + "&nbsp;" + UIProvider.curNom;
+          $("total_real_summ").innerHTML = SMath.ceil(real_summ_fixed, zn_ok_vst1) + "&nbsp;" + UIProvider.curNom;
+          }
+  else
+       if ([zn_ok[0]].join('') == "-" ){
+          $("realval3").innerHTML = SMath.floor(real_summ_fixed, zn_ok_vst1) + "&nbsp;" + UIProvider.curNom;
+          $("total_real_summ").innerHTML = SMath.floor(real_summ_fixed, zn_ok_vst1) + "&nbsp;" + UIProvider.curNom;
+          }
+  else
+  {
+          $("realval3").innerHTML = $('prv_really_summ').value  + "&nbsp;" + UIProvider.curNom; 
+          $("total_real_summ").innerHTML = $('prv_really_summ').value + "&nbsp;" + UIProvider.curNom; 
+  }
+  }
+//  ----------------------------------------------------------------------------------------------------------------------
+else{
+
+  
+          $("realval").innerHTML = getStr("real_summ");   // + "&nbsp" + "("+ UIProvider.curNom + ")"
+         $("realval2").innerHTML = getStr("es_4");
+         $("realval3").innerHTML = $('prv_really_summ').value  + "&nbsp;" + UIProvider.curNom; 
+  $("total_real_summ").innerHTML = $('prv_really_summ').value + "&nbsp;" + UIProvider.curNom; 
+         $("totalusd").innerHTML = $('getAmount').value + " USD";
+        $("totalusd2").innerHTML = $('getAmount').value + " USD";
+        $("commision").innerHTML = $('komiss').value + " USD";
+       $("commision2").innerHTML = $('komiss').value + " USD";
+      $("maxcashsumm").innerHTML = $('max_cash_summ').value;
+          $("minsumm").innerHTML =  getStr("es_1") + $('min_summ').value + " USD";
+     }  
+}
+ //-------------------Курсы Таблица----------------------
+
+
+
+
+
+
+        function onPaymentBtnClick() {
+            startAdvert('Enter_Summ');
+            setTimeout(function(){
+		    if (bIsEnterSumm) {
+		        oPayInfo.summ = $("prv_really_summ").value;
+		        storage.put("pay_info", oPayInfo.serialize());
+		            document.location.href = "./ok.html";
+		    }
+	    }, 50);
+        }
+        
+        
+        
+        
+        
+        function onValueChange(oEventInfo, sElementId) {
+            if ($('getAmount').value != '0')
+               var sLang = storage.get("language");
+		       if (sLang == "F1")
+		        {
+                
+                $('button_payment').src = "./img/ui/navigation/payment_F1.gif";
+                }
+                else
+                if (sLang == "FC"){
+                $('button_payment').src = "./img/ui/navigation/payment_FC.gif";
+                }
+                  
+            switch (sElementId) {
+                case "komisswarn":
+                    updateSpan("komisswarn", "komisswarn_span");
+                    break;
+                case "komisswarn2":
+                    updateSpan("komisswarn2", "komisswarn2_span");
+                    break;
+                case "getAmount":
+//                    $("advert_1").style.display = "none";
+//                    $("background").style.width = "0px";
+//                    $("background").style.height = "0px";
+                    break;
+                case "prv_really_summ":
+                    if (oPayInfo != null) {
+                        oPayInfo.summ = $("prv_really_summ").value;
+		                storage.put("pay_info", oPayInfo.serialize());
+		            }
+                case "comissionInfoText":
+                    if ($("comissionInfoText").value.length != 0)
+                        $("commission_btn_1").style.display = "block";
+                    break;
+                case "comissionInfoText2":
+                    if ($("comissionInfoText2").value.length != 0)
+                        $("commission_btn_2").style.display = "block";
+                    break;
+                case "change":
+                    $("commission_btn_2").style.display = "block";
+                    break;
+                case "Prv2Type":
+                    if ($("Prv2Type").value == "1") {
+                        $("dc_header").innerHTML = "Перечисление сдачи";
+                    }
+                    else if ($("Prv2Type").value == "2") {
+                        $("dc_header").innerHTML = "Второй провайдер";
+                    }
+                    else {
+                        $("dc_header").innerHTML = "";
+                    }
+                    break;
+                case "SecondPrvComm":
+                    if ($("SecondPrvComm").value.toLowerCase() == "true") {
+                        $("red_line_txt").innerHTML = "Автомат сдачи наличными не выдает!";
+                        $("info_2").style.display = "block";
+                    }
+                    else {
+                        $("red_line_txt").innerHTML = "Автомат сдачи не выдает!";
+                        $("info_2").style.display = "none";
+                    }
+                    break;
+            }
+        }
+        
+        
+        
+        
+        
+        
+
+        function onCommissionBtnClick(oEventInfo, nBtnNum) {
+            if ($("commission_info").style.display != "block" ||
+                    nCommInfoNum != nBtnNum) {
+                var sTxt = "";
+                if (nBtnNum == 1) {
+                    sTxt = $("comissionInfoText").value;
+                }
+                else if (nBtnNum == 2) {
+                    sTxt = $("comissionInfoText2").value;
+                }
+                if (sTxt.length > 0) {
+                    insertContent("commission_txt", sTxt);
+                }
+                $("commission_info").style.display = "block";
+                displayCommInfo(true);
+            }
+            else if (nCommInfoNum == nBtnNum) {
+                displayCommInfo(false);
+            }
+            nCommInfoNum = nBtnNum;
+        }
+        
+        
+        
+        
+        
+
+        function updateSpan(sInputId, sSpanId) {
+            var oInput = $(sInputId);
+            var oSpan = $(sSpanId);
+            if (!($isNoU(oInput) || $isNoU(oSpan))) {
+                oSpan.innerHTML = oInput.value;
+            }
+        }
+        
+        
+        
+        
+        
+        
+        function displayCommInfo(bDisplay) {
+            if ($bool(bDisplay)) {
+                $("commission_info").style.display = "block";
+                nCommInfoTimeout = setTimeout("displayCommInfo(false);", 15000);
+            }
+            else {
+                clearTimeout(nCommInfoTimeout);
+                $("commission_info").style.display = "none";
+                nCommInfoNum = 0;
+            }    
+        }
+        
+        
+        
+        
+        
+
+        function displayDelivery() {
+            $("delivery_div").style.display = "block";
+            $("red_line").style.display = "none";
+            detachPropertyChangeListener("change", displayDelivery);
+        }
+        
+        
+        
+        
+        
+        function open_e_s(){
+<!--	    document.getElementById('open_e_s').style.display = "block";
+<!--        document.getElementById('open_info').style.display = "none";-->-->
+
+				$("open_info").style.display = "none";
+		$("open_e_s").style.display = "block";
+		$("fade").style.display = "none";
+	}
+	
+	
+	
+	
+	    function open_info(){
+<!--	    document.getElementById('open_info').style.display = "none";-->
+<!--        document.getElementById('open_e_s').style.display = "block";-->
+		$("open_info").style.display = "block";
+		$("open_e_s").style.display = "none";
+		$("fade").style.display = "block";
+	}
+	
+	
+	
+
+	</script>
+	
+</head>
+<body onLoad="init();curstabv();open_e_s(); curstabvCreate();">
+     <form id="ff" name="ff" method="post" action="#">
+ <input id="prv_AddCash" name="prv_AddCash" style="display:none"  type="text" value="" />
+ <input id="prv_AddCash_BillName" name="prv_AddCash_BillName" style="display:none"  type="text" value="" />
+ <input id="comissionInfoText" name="comissionInfoText" type="hidden" style="display:none" value="" />
+ <input id="comissionInfoText2" name="comissionInfoText2" type="hidden" style="display:none" value="" />
+ <input style="display: none" id="komiss" name="komiss" type="text" value=""><input style="display: none" id="komissprop" name="komissprop"  type="text" value="" />
+ <input id="getAmount" name="getAmount" type="text" value="" class="total" style="display: none"  >	 <!--onpropertychange только для маратлтест-->
+ <input style="display: none" id="prv_really_summ" name="prv_really_summ" type="text" value="1.23456" onpropertychange="curstabvCreate();" >
+ <input id="really_summ_prop" name="really_summ_prop " style="display: none" type="text" value="" />     
+
+	<div class="popup-wrapper" id="open_info" style="display:none" onclick="open_e_s();">
+		<div class="popup-title">
+			<div class="panel"><script type="text/javascript">document.write(getStr("currency_rates"));</script></div>
+			<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em><em class="ll"></em><em class="rr"></em>
+		</div>
+		<div class="popup-content">
+			<div class="panel">
+				<table cellspacing="0">
+					<tr>
+						<th><script type="text/javascript">document.write(getStr("income"));</script></th>
+				     <td id="a1" class="price"></td>
+					 <td id="a2" class="price"></td>
+					 <td id="a3" class="price"></td>
+					 <td id="a4" class="price"></td>
+					</tr>
+									
+					<tr  class="gray">
+					 <td><script type="text/javascript">document.write(getStr("rate_currency"));</script></td>
+					 <td id="d1" class="price"></td>
+					 <td id="d2" class="price"></td>
+					 <td id="d3" class="price"></td>
+					 <td id="d4" class="price"></td>				
+					</tr>
+									
+					<tr>
+					 <td><script type="text/javascript">document.write(getStr("total_usd_income"));</script></td>
+                     <td id="c1" class="price"></td>
+					 <td id="c2" class="price"></td>
+					 <td id="c3" class="price"></td>
+					 <td id="c4" class="price"></td>
+					</tr>
+										
+					<tr class="gray">
+						<td><script type="text/javascript">document.write(getStr("total"));</script></td>
+						<td id="totalusd" colspan="4" class="price huge" ></td>
+					</tr>
+										
+					<tr>
+						<td><script type="text/javascript">document.write(getStr("commision"));</script></td>
+						<td id="commision" colspan="4" class="price huge"></td>
+					</tr>
+					
+					<tr class="gray">
+						<td id="realval"><script type="text/javascript">document.write(getStr("real_summ"));</script></td>
+					
+						<td id="total_real_summ"  class="price huge"></td>
+						<td id="bycourse"  colspan="4" class="price " style="display: none"></td>
+					</tr>
+					
+					<tr>
+						<td colspan="5">				
+							<div class="button"  onclick="open_e_s();">
+								<div class="container"><script type="text/javascript">document.write(getStr("close_tab"));</script></div>
+								<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em>
+							</div>
+						</td>
+					</tr>			
+				</table>
+			</div>
+			<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em><em class="ll"></em><em class="rr"></em>
+		</div>
+	</div>
+
+
+	<div class="course-wrapper" id="open_e_s" style="display:none">
+	    <table id="commission_info" cellpadding="20" cellspacing="1">
+        <tr>
+            <td id="commission_txt">
+<!--                <strong>Нет дополнительной информации</strong>-->
+            </td>
+        </tr>
+    </table>
+      <!------------- Курсы ------------>
+	<div id="curstabv" style="margin: 5px 0px 0px 25px; color: #000;font-size: 15px;"></div>
+      <!------------- Курсы ------------>
+		<div class="course-title"> 
+			<div class="panel" id="curs_title_pop" ><script type="text/javascript">document.write(getStr("cur_index1"));</script></div>
+			<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em>
+		</div>
+
+		<div class="course-content">
+			<div class="panel money">
+			
+			
+				
+				<div class="container">
+				 <table style ="width:100%;" >
+				   <tr>
+				     <td>
+				         <script type="text/javascript">document.write(getStr("es_2"));</script></td>
+				     <td style =" text-align: right; font-size: 32px; color: #f86a2c "><div id="totalusd2" ></div></td><!--Внесенная сумма-->
+				   </tr>
+				  </table>
+				</div>
+				
+				
+				
+				
+				<div class="container gray">
+				  <table style ="width:100%;" >
+				    <tr>
+				     <td> 
+				       <script type="text/javascript">document.write(getStr("es_3"));</script></td>
+				      <td style =" text-align: right; font-size: 32px; color: #f86a2c "><div id="commision2" ></div></td><!--сумма комисии--><!--номинал валюты--> <!-- Текст Коммисии-->
+				    </tr>
+				   </table>
+				</div> 
+				 
+				 <input style="display: none" id="komissprofile" name="komissprofile"  type="text" value="" /> 
+				 <!--Профиль комиссии-->	
+				 
+				 	     
+
+				<div  class="container">
+ 				   <!--номинал валюты суммы к зачислению-->
+				   <table style ="width:100%;" >
+				    <tr>
+				     <td> 
+				      <div id="realval2"></div></td><!--Текст сумма к зачислению-->
+				      <td style =" text-align: right; font-size: 32px; color: #f86a2c "><div id="realval3"></div></td>
+				     </tr>
+				   </table>
+                 </div> 
+                 
+                 
+            <div class="container gray" style =" font-size: 18px; ">
+			 <input style="text-align: center; display: none;" id="max_cash_summ" name="max_cash_summ"   type="text" value="" /> <!--value="не ограничена"-->  <!--Текст Максимальная сумма -->
+			  <table style ="width:100%;" >
+				<tr>
+				  <td> 
+			          <script type="text/javascript">document.write(getStr("es_8"));</script></td> 
+			        <td style ="text-align: right; font-size: 21px; color: #f86a2c "><div id="maxcashsumm"></div>
+			      </td>
+				 </tr>
+			  </table>
+			</div>
+                 
+                 
+                 
+ 
+				<div style="display: none">
+				<input id="changeprop" name="changeprop" type="text" value="" />
+				<input id="change" name="change"  type="text" value="" /> 
+				<input id="komissprop2" name="komissprop2"  type="text" value="" />
+				<input id="komiss2" name="komiss2"  type="text" value="" />
+				<input id="komissprofile2" name="komissprofile2"  type="text" value="" />
+				<input id="really_summ_prop2" name="really_summ_prop2"  type="text" value="" />
+				<input id="really_summ2" name="really_summ2"  type="text" value="" />
+				</div>
+				
+				
+				 			
+				<div class="button" onclick = "open_info();">
+					<div class="container"><script type="text/javascript">document.write(getStr("es_10"));</script></div>
+					<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em>
+			    </div>
+				<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em><em class="tt"></em><em class="rr"></em><em class="bb"></em><em class="ll"></em>
+			</div>	
+
+			<div class="panel">
+				<div class="container"><script type="text/javascript">document.write(getStr("es_6"));</script><script type="text/javascript">document.write(getStr("es_7"));</script></div>
+				<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em><em class="tt"></em><em class="rr"></em><em class="bb"></em><em class="ll"></em>
+			</div>
+			
+			
+			
+		<div class="panel">
+			<table>
+			 <tr>
+			  <td>
+		       <div id="minsumm" class="container"></div>
+				<input style=" display: none; text-align: left; color: #fff;" id="min_summ" name="min_summ"  type="text" value="" />  <!--значение минимальной суммы-->
+			 </td>
+		   </tr>
+		  </table>
+				<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em><em class="tt"></em><em class="rr"></em><em class="bb"></em><em class="ll"></em>
+		</div>
+			
+			
+			<div class="panel">
+				<div class="container"><img src="currency_iconalert.png" align="left"><script type="text/javascript">document.write(getStr("es_5"));</script></div>
+				<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em><em class="tt"></em><em class="rr"></em><em class="bb"></em><em class="ll"></em>
+			</div>					
+			<em class="tl"></em><em class="tr"></em><em class="bl"></em><em class="br"></em>
+
+            <div style="display: none " id="min_summ_um">$</div>
+         </div>
+           </div>
+<!--  </div>-->
+	 </form>
+
+	 <div  class="fade-wrapper" id="fade" onclick="open_e_s();"></div>
+	
+	
+          <div id="btn_right_F1" style="display:none;z-index:5;" class="bottom-button-right">
+          <img id="button_payment" src="./img/ui/navigation/forward_F1.gif" onClick="onPaymentBtnClick();" />
+          </div>
+          <div id="btn_right_FC" style="display:none;z-index:5;" class="bottom-button-right">
+          <img id="button_payment" src="./img/ui/navigation/forward_FC.gif" onClick="onPaymentBtnClick();" />
+          </div>
+              
+   <script type="text/javascript">
+        attachPropertyChangeListener("prv_really_summ", $callback(onValueChange, "prv_really_summ"));
+        attachPropertyChangeListener("komisswarn",
+            $callback(onValueChange, "komisswarn"));
+        attachPropertyChangeListener("komisswarn2",
+            $callback(onValueChange, "komisswarn2"));
+        attachPropertyChangeListener("getAmount",
+            $callback(onValueChange, "getAmount"));
+        attachPropertyChangeListener("comissionInfoText",
+            $callback(onValueChange, "comissionInfoText"));
+        attachPropertyChangeListener("comissionInfoText2",
+            $callback(onValueChange, "comissionInfoText2"));
+        attachPropertyChangeListener("Prv2Type",
+            $callback(onValueChange, "Prv2Type"));
+        attachPropertyChangeListener("SecondPrvComm",
+            $callback(onValueChange, "SecondPrvComm"));
+        attachPropertyChangeListener("change",
+            displayDelivery);
+        attachEventListener("commission_info", "click",
+            function() { displayCommInfo(false); });
+        
+    </script>
+</body>
+</html>

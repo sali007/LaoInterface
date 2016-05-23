@@ -1,0 +1,135 @@
+<html>
+
+<head>
+
+	<title>global_index / no refresh</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+
+	<meta http-equiv="pragma" content="no-cache">
+
+	<meta http-equiv="refresh" content="30; URL=./index.html">
+
+</head>
+
+<script src="./js/ui/objects.js"></script>
+<script src="./js/engine/utils.js"></script>
+<script src="./js/engine/pars_cookie.js"></script>
+<script src="./js/lang/str_ZA.js"></script>
+<script src="./js/lang/str_Z1.js"></script>
+<script src="./js/engine/pars_cookie.js"></script>
+
+<script>
+
+function backward() {
+	parent.location = "./pages.html";
+}
+
+
+function forward() {
+
+	ff.submit();
+}
+
+function menu() {
+
+	parent.location = "./index.html";
+
+}
+
+function bdef(){
+
+    uiNavigationButton('back_btn', 'LEFT_DISABLED', '');
+    uiNavigationButton('menu_btn', 'MENU_ENABLED', 'menu()');
+    uiNavigationButton('forward_btn', 'RIGHT_DISABLED', '');
+}
+
+</script>
+
+
+<link rel="stylesheet" href="./css/df.css" type="text/css">
+
+<body onload="bdef();" bgcolor="#a0a0a0" topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" heightmargin="0">
+
+<center>
+
+<div id="fake" style="position:absolute; top:250;"></div>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#e6e6e6">
+
+<tr>
+
+<td align="center" valign="middle">
+
+		<table cellpadding="10" cellspacing="10" border="0" width="70%" style="padding: 10 50 0 50;">
+
+		<form name="ff" action="./enter_summ.html" method="post">
+
+		<tr>
+
+		<td align="center">
+        <div class="inp" style="font-size: 50px;">
+            <script>document.write(getStr("att"));</script>
+        </div>
+        <div style="font-size: 30px; margin: 20px 0px 20px 0px;">
+            <script>document.write(getStr("denial_of_surgery"));</script>
+        </div>
+		<img border="0" src="./img/ui/online_auth_error.gif">
+
+		</td>
+
+		</tr>
+
+
+		<tr>
+
+		<td align="center" bgcolor="#dedede">
+
+				<table cellpadding="0" cellspacing="0" border="0">
+
+				<tr>
+
+				<td width="11" background="./img/ui/input_left.gif"></td>
+
+				<td background="./img/ui/input_bg.gif" height="68"><input type="text" name="auth_msg" class="inp" style="width:800px;"></td>
+
+				<td width="11" background="./img/ui/input_right.gif"></td>
+
+				</tr>
+
+				</table>
+
+		</td>
+
+		</tr>
+
+		</form>
+
+		</table>
+
+	</td>
+
+</tr>
+
+
+    <tr>
+        <td height="161">
+		    <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+            
+                    <td id="back_btn" align="left" width="33%"></td>
+            
+                    <td id="menu_btn" align="center" width="34%"></td>
+
+                    <td id="forward_btn" align="right" width="33%"></td>
+            
+                </tr>
+	        </table>
+	    </td>
+	</tr>
+
+</table>
+
+</body>
+
+</html>
