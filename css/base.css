@@ -12,8 +12,8 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
     position: absolute;
     width: 580px;
     height: 300px;
-	top: 10px;
-    left: 10px;
+	top: 30px;
+    left: 20px;
     background: url('../img/ui/EasyPay-logo.png') no-repeat;
 	z-index: 1000;
 

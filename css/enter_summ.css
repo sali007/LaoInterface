@@ -25,8 +25,8 @@
 	        position: absolute;
 	        width: 580px;
 	        height: 300px;
-	        top: 10px;
-	        left: 10px;
+	        top: 30px;
+	        left: 20px;
 	        background: url('../img/ui/EasyPay-logo.png') no-repeat;
 	        z-index: 1000;
 		 }
@@ -99,35 +99,23 @@
 			.popup-content .tr { right: -20px; }
 			.popup-content .bl { left: -20px;   }
 			.popup-content .br { right: -20px;    }
-			
+
 			.popup-content .ll, .popup-content .rr { width: 20px; background: #fff; }
 			.popup-content .ll { left: -20px; }
 			.popup-content .rr { right: -20px; }
-			
+
 			.popup-content .panel, .course-content .panel { display: block; position: relative; margin: 0 0 5px 0px; color: #fff; font-size: 160%; }
 			.popup-content .panel { clear: both; padding: 0px; }
-			.course-content .panel { float: left; clear: left; width: 380px; padding: 15px; }
+			.course-content .panel { float: left; clear: left; width: 380px; padding: 0px;  background-color: #fff }
 
 
-			.popup-content table { width: 98%; color: #666; }
-			.popup-content table th, .popup-content table td { padding: 10px; }
-			.popup-content .gray td { background: #f5f5f5; }
-			.popup-content table .price { text-align: right; color: #333; border-left: 3px solid #f5f5f5 }
-			.popup-content table .price.huge { text-align: right; font-size: 180%; }
 
-			.popup-content .tl {left: -20px; background: url('../img/ui/enter_summ/currency_round.png') left -120px no-repeat; }
+			.course-content .panel .tt, .course-content .panel .rr, .course-content .panel .bb, .course-content .panel .ll { background: #fff }
 
-			.course-content .panel .tl { background: url('../img/ui/enter_summ/currency_round.png') left -80px no-repeat;  }
-			.course-content .panel .tr { background: url('../img/ui/enter_summ/currency_round.png') right -80px no-repeat;  }
-			.course-content .panel .bl { background: url('../img/ui/enter_summ/currency_round.png') left -100px no-repeat;  }
-			.course-content .panel .br { background: url('../img/ui/enter_summ/currency_round.png') right -100px no-repeat;  }
-			
-			.course-content .panel .tt, .course-content .panel .rr, .course-content .panel .bb, .course-content .panel .ll { background: #99cbec; }
-
-			.course-content .container { display: block; clear: both; padding: 8px; margin: 0; }
+			.course-content .container { display: block; clear: both; padding: 12px; margin: 0 0px 10px 10px; background-color: #fff }
 			.course-content .container.gray { background: #f5f5f5; }
-            .course-content .money2 .container.gray { background: #f5f5f5;margin-top: 10px;}
-			.course-content .container input { border: 0; background: transparent; text-align: right; float: right; color: #f86a2c; }
+            .course-content .money2 .container.gray { background: #f5f5f5;}
+			.course-content .container input { border: 0; text-align: right; float: right; color: #f86a2c; }
 
 			.course-content .panel.money { width: 500px; height: 272px; float: right; clear: left; margin: 20px 40px 0 20px; padding: 0px 0px 0px 0px; color: #999; background: #fff; }
             .course-content .panel.money2 {position: absolute; width: 500px; height: 85px; top: 390px; left: 440px; float: right; clear: left;  padding: 0; color: #999; background: #fff; }
@@ -135,17 +123,17 @@
 
 			.course-content .panel.money .container input.total { width: 300px; font-size: 220%; font-weight: bold; margin: -5px 0 10px 0; }
 			
-			.course-content .panel.money .tl, .course-content .panel.money2 .tl { top: -20px; left: -20px; background: url('../img/ui/enter_summ/currency_round.png') left -120px no-repeat; }
-			.course-content .panel.money .tr, .course-content .panel.money2 .tr { top: -20px; right: -20px; background: url('../img/ui/enter_summ/currency_round.png') right -120px no-repeat; }
-			.course-content .panel.money .bl, .course-content .panel.money2 .bl { bottom: -20px; left: -20px; background: url('../img/ui/enter_summ/currency_round.png') left -140px no-repeat; }
-			.course-content .panel.money .br, .course-content .panel.money2 .br { bottom: -20px; right: -20px; background: url('../img/ui/enter_summ/currency_round.png') right -140px no-repeat; }
+			.course-content .panel.money .tl, .course-content .panel.money2 .tl, .course-content .panel .tl  { top: -20px; left: -20px; background: url('../img/ui/enter_summ/currency_round.png') left -120px no-repeat; }
+			.course-content .panel.money .tr, .course-content .panel.money2 .tr, .course-content .panel .tr  { top: -20px; right: -20px; background: url('../img/ui/enter_summ/currency_round.png') right -120px no-repeat; }
+			.course-content .panel.money .bl, .course-content .panel.money2 .bl, .course-content .panel .bl  { bottom: -20px; left: -20px; background: url('../img/ui/enter_summ/currency_round.png') left -140px no-repeat; }
+			.course-content .panel.money .br, .course-content .panel.money2 .br, .course-content .panel .br { bottom: -20px; right: -20px; background: url('../img/ui/enter_summ/currency_round.png') right -140px no-repeat; }
 
 			.course-content .panel.money .tt, .course-content .panel.money .rr, .course-content .panel.money .bb, .course-content .panel.money .ll { background: #fff; }
             .course-content .panel.money2 .tt, .course-content .panel.money2 .rr, .course-content .panel.money2 .bb, .course-content .panel.money2 .ll { background: #fff; }
-            .course-content .panel.money .tt, .course-content .panel.money2 .tt { top: -20px; left: 0; right: 0; height: 20px; }
-			.course-content .panel.money .bb, .course-content .panel.money2 .bb { bottom: -20px; left: 0; right: 0; height: 20px; }
-			.course-content .panel.money .rr, .course-content .panel.money2 .rr { right: -20px; top: 0; bottom: 0; width: 20px; }
-			.course-content .panel.money .ll, .course-content .panel.money2 .ll { left: -20px; top: 0; bottom: 0; width: 20px; }
+            .course-content .panel.money .tt, .course-content .panel.money2 .tt , .course-content .panel .tt { top: -20px; left: 0; right: 0; height: 20px; }
+			.course-content .panel.money .bb, .course-content .panel.money2 .bb, .course-content .panel .bb { bottom: -20px; left: 0; right: 0; height: 20px; }
+			.course-content .panel.money .rr, .course-content .panel.money2 .rr, .course-content .panel .rr{ right: -20px; top: 0; bottom: 0; width: 20px; }
+			.course-content .panel.money .ll, .course-content .panel.money2 .ll, .course-content .panel .ll { left: -20px; top: 0; bottom: 0; width: 20px; }
 
 
 .bottom-button-left
