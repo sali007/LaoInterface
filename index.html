@@ -47,8 +47,8 @@
                 sLang = "F1";
                 storage.put("language", sLang);
             }
-            //$("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
-            //$("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
+            $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
+            $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
             //$(sLang + "_lang").style.background = "url('./img/ui/index/l_" + sLang + "_on.png') no-repeat";
             // $("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLang + ".gif') no-repeat";
             //  $("btn_2").style.background = "url('./img/ui/index/main_info_" + sLang + ".gif') no-repeat";
@@ -115,7 +115,7 @@
             $(sLanguage + "_lang").style.background = "url('./img/ui/index/l_" + sLanguage + "_on.png') no-repeat";
 
         }
-        /*function butlang() {
+        function butlang() {
             var sLang = storage.get("language");
             if (sLang == "F1") {
                 document.getElementById('F1_lang').style.display = "block";
@@ -126,7 +126,7 @@
                     document.getElementById('FC_lang').style.display = "block";
                     document.getElementById('F1_lang').style.display = "block";
                 }
-        } */
+        }
 
         function init() {
 
@@ -384,15 +384,16 @@
     </div>
     <div id="date">
     </div>
-    <!--<div id="lang_panel">
-        <div id='F1_lang' style="display: block; position: relative; right: 25%; color: white; padding: 60 0 0 22px;"
-            onclick='setLang("F1");date();butlang();start(); tablcurs();'>
-            Русский
+    <div id="lang_panel">
+        <div id='F1_lang' align="center" style="display: block; position: relative; right: 65%; color: white; padding: 60 0 0 22px;"
+             onclick='setLang("F1");date();'>
+            Lao
         </div>
-        <div id='FC_lang' style="display: block; position: relative; left: 25%; color: white; padding: 60 0 0 22px;"
-            onclick='setLang("FC");date();butlang();start(); tablcurs();'>
+        <div id='FC_lang' style="display: block; position: relative; right: 15%; color: white; padding: 60 0 0 22px;"
+            onclick='setLang("FC");date();'>
             English
-        </div> -->
+            </div>
+        </div>
         <!------------------Курсы Вывод на экран------------------>
         <div class="currency-panel" id="cursy" align="center" style="display: none">
             <div id="messlang" class="title">
