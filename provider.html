@@ -25,23 +25,23 @@ var head = null;
 function init() {
 
 
-//    var sLang = storage.get("language");
-//    if (!sLang || sLang == "null") {
-//        sLang = "F1";
-//    }
-//    if (sLang == "F1") {
+   var sLang = storage.get("language");
+    if (!sLang || sLang == "null") {
+        sLang = "F1";
+    }
+    if (sLang == "F1") {
 
-//        getScript("./js/engine/pages.provider_F1.js");
-
-
-//        
-//    }
-//    else {
-
-//        getScript("./js/engine/pages.provider_FC.js");
+        getScript("./js/engine/pages.provider_F1.js");
 
 
-//    }
+
+    }
+    else {
+
+        getScript("./js/engine/pages.provider_FC.js");
+
+
+    }
     
 
 

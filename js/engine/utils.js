@@ -1127,10 +1127,10 @@ log.add('Utils finish');
 
 function getStr(sKey) {
     var oStrings = null;
-    
+
     try {
         eval("oStrings = strings_" + storage.put("language"));
-        
+
         if (oStrings[sKey]) {
             return oStrings[sKey];
         }
@@ -1143,7 +1143,7 @@ function getStr(sKey) {
 
 function getStr(sKey) {
     var oStrings = null;
-    
+
     try {
         eval("oStrings = strings_" + storage.get("language"));
         

@@ -40,6 +40,8 @@
             var str1 = ff.cur.value;
             storage.put("cur", str1);
 
+
+
             //------------------Курсы -------------------------
             var sLang = storage.get("language");
 
@@ -49,6 +51,7 @@
             }
             $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
             $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
+            $("logo-main").style.background = "url('./img/ui/EasyPay-logo-main_" + sLang + ".png') no-repeat";
             //$(sLang + "_lang").style.background = "url('./img/ui/index/l_" + sLang + "_on.png') no-repeat";
             // $("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLang + ".gif') no-repeat";
             //  $("btn_2").style.background = "url('./img/ui/index/main_info_" + sLang + ".gif') no-repeat";
@@ -79,6 +82,7 @@
             //   $("messlang").innerHTML = mess;
            // $("new_curs").innerHTML = mess + '<br/>';
         }
+
         function tablcurs() {
 
             var str = ff.cur.value;
@@ -107,12 +111,14 @@
         function setLang(sLanguage) {
             storage.put("language", sLanguage);
             $("Language").value = sLanguage;
-            //  $("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLanguage + ".gif') no-repeat";
+            $("logo-main").style.background = "url('./img/ui/EasyPay-logo-main_" + sLanguage + ".png') no-repeat";
+            //$("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLanguage + ".gif') no-repeat";
             // $("btn_2").style.background = "url('./img/ui/index/main_info_" + sLanguage + ".gif') no-repeat";
             // $("btn_3").style.background = "url('./img/ui/index/butt_bott_" + sLanguage + "_zkh.gif') no-repeat";
             $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
             $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
             $(sLanguage + "_lang").style.background = "url('./img/ui/index/l_" + sLanguage + "_on.png') no-repeat";
+
 
         }
         function butlang() {
@@ -120,11 +126,13 @@
             if (sLang == "F1") {
                 document.getElementById('F1_lang').style.display = "block";
                 document.getElementById('FC_lang').style.display = "block";
+
             }
             else
                 if (sLang == "FC") {
                     document.getElementById('FC_lang').style.display = "block";
                     document.getElementById('F1_lang').style.display = "block";
+                    document.getElementById("logo_FC").style.display = "block";
                 }
         }
 
@@ -385,13 +393,13 @@
     <div id="date">
     </div>
     <div id="lang_panel">
-        <div id='F1_lang' align="center" style="display: block; position: relative; right: 65%; color: white; padding: 60 0 0 22px;"
+        <div id='F1_lang' style="display: block; position: relative; right: 65%; color: white; padding: 100 18 0 0px;"
              onclick='setLang("F1");date();'>
-            Lao
+                <p align="center">Lao</p>
         </div>
-        <div id='FC_lang' style="display: block; position: relative; right: 15%; color: white; padding: 60 0 0 22px;"
+        <div id='FC_lang' style="display: block; position: relative; right: 15%; color: white; padding: 100 0 0 22px;"
             onclick='setLang("FC");date();'>
-            English
+            <p>English</p>
             </div>
         </div>
         <!------------------Курсы Вывод на экран------------------>
@@ -411,10 +419,10 @@
     </script>
 
 
-    <div id="easypay_logo" style="position: absolute; width: 980px; height: 330px; left: 170px; top: 120px;  background: url('./img/ui/EasyPay-logo-main.png') no-repeat;">
-
+    <div id="logo-main" style="position: absolute; width: 980px;height: 330px; left: 170px; top: 120px;">
     </div>
-    <!--<div id='new_curs' style='position: absolute; width: 500px; height: 70px; left: 390px; top: 25px; color: white; text-align: center; font-size: 28px;'></div>-->
+
+        <!--<div id='new_curs' style='position: absolute; width: 500px; height: 70px; left: 390px; top: 25px; color: white; text-align: center; font-size: 28px;'></div>-->
     <div id="info" style="width: 300px; height: 114px; left: 535px; top: 850px; position: absolute;"></div>
     <!--<div style="position: absolute; width: 100px; height: 100px; left: 585px; top: 850px; background: url(./img/ui/index/inf.png);" onclick=" document.location.href = './karta.html'; "></div>-->
     <div id="rules" style="width: 300px; height: 114px; left: 635px; top: 850px; position: absolute;"></div>
