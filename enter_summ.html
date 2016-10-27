@@ -451,7 +451,7 @@
                             document.location.href = "./ok.html";
                     }
                     else
-                        document.location.href = "./ok.html";
+                        document.location.href = "./index.html";
                     //if (UIProvider.id == 7368)
                     //{document.location.href = "./p_life_postpage.html";}
                     //else
@@ -465,18 +465,19 @@
         
         
         function onValueChange(oEventInfo, sElementId) {
-            if ($('getAmount').value != '0')
-                $('btn_left_F1').style.display = "none";
-                var sLang = storage.get("language");
+
+            var sLang = storage.get("language");
+
             if (sLang == "F1")
             {
-                $('button_payment').className = "bottom-button-left";
+                $('btn_left_F1').style.display = "none";
+                //$('button_payment').className = "bottom-button-center";
                 $('button_payment').src = "./img/ui/navigation/payment_F1.gif";
             }
-            else
-                if (sLang == "FC"){
-                    $('button_payment').src = "./img/ui/navigation/payment_FC.gif";
-                }
+            else {
+                $('btn_left_FÑ').style.display = "none";
+                $('button_payment').src = "./img/ui/navigation/payment_FC.gif";
+            }
                   
             switch (sElementId) {
                 case "komisswarn":
@@ -914,17 +915,17 @@
         <img src="./img/ui/navigation/back_FC.gif" onclick="onMenuBtnClick('BACKWARD') " />
     </div>
     <div id="btn_right_F1" style="display: none; z-index: 5;" class="bottom-button-right">
-        <img id="button_payment" src="./img/ui/navigation/forward_F1.gif" onclick="onPaymentBtnClick();" />
+        <img src="./img/ui/navigation/forward_F1.gif" onclick="onPaymentBtnClick();" />
     </div>
     <div id="btn_right_FC" style="display: none; z-index: 5;" class="bottom-button-right">
-        <img id="button_payment" src="./img/ui/navigation/forward_FC.gif" onclick="onPaymentBtnClick();" />
+        <img  src="./img/ui/navigation/forward_FC.gif" onclick="onPaymentBtnClick();" />
     </div>
 
     <div id="btn_center_F1" style="display: none; z-index: 5;" class="bottom-button-center">
-        <img src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
+        <img id="button_payment" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
     </div>
     <div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">
-       <img src="./img/ui/navigation/menu_FC.gif" onclick="onPaymentBtnClick();" />
+       <img id="button_payment" src="./img/ui/navigation/menu_FC.gif" onclick="onPaymentBtnClick();" />
     </div>
 
     <script type="text/javascript">
