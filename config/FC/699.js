@@ -10,7 +10,7 @@ UIProvider = {
     "small_logo": "",
     "tag": "visible",
     "cellular": "4",
-    "minSum":"5000",
+    "minSum":"500",
     "maxSum":"1000000",
     "__objects": [
         {
