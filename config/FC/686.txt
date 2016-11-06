@@ -9,6 +9,8 @@ UIProvider = {
     "sName": "LAO Telecom",
     "small_logo": "",
     "tag": "visible",
+    "minSum":"5000",
+    "maxSum":"1000000",
     "__objects": [
         {
             "__type": "constParams"

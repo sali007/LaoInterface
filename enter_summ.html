@@ -283,99 +283,6 @@
             if(UIProvider.id == 7368)  //
             {
 
-
-
-                //$("realval2_2").style.display = "block";
-                var SMath={
-                    round:function(x,y) {var y=y||0;y=Math.pow(10,y); var x = x * y; x = Math.round(x); x = x / y; return x;},
-                    ceil:function(x,y) {var y=y||0;y=Math.pow(10,y); var x = x * y; x =  Math.ceil(x); x = x / y; return x;},
-                    floor:function(x,y) {var y=y||0;y=Math.pow(10,y); var x = x * y; x = Math.floor(x); x = x / y; return x;}
-                }
-                getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
-
-                var str = UIProvider.round_math;
-
-
-                var x = 0;
-
-                if (str.substring(1) == 0.1){
-                    x=1;
-
-                }
-                else
-                    if (str.substring(1) == 0.01){
-                        x=2;
-                    }
-                    else
-
-                        x=0;
-
-                var y_round = SMath.round(parseFloat($('really_summ').value)/parseFloat(str.substring(1)),x);
-                var z_round = parseFloat(str.substring(1));
-                var s_round = SMath.round(y_round * z_round, x);
-
-                var y_floor = SMath.floor(parseFloat($('really_summ').value)/parseFloat(str.substring(1)),x);
-                var z_floor = parseFloat(str.substring(1));
-                var s_floor = SMath.floor(y_floor * z_floor, x);
-
-                var y_ceil = SMath.ceil(parseFloat($('really_summ').value)/parseFloat(str.substring(1)),x);
-                var z_ceil = parseFloat(str.substring(1));
-                var s_ceil = SMath.ceil(y_ceil * z_ceil, x);
-
-                if (str.substring(0,1) == "~" ){
-                    $("realval3").innerHTML = s_round + "&nbsp;" + UIProvider.curNom;
-                    $("total_real_summ").innerHTML = s_round + "&nbsp;" + UIProvider.curNom;
-                    $("total_real_summ_ok").innerHTML = s_round;
-                   // $("realval2_1").innerHTML = getStr("es_4_1");
-                   // $("realval2_2").innerHTML = getStr("es_4_1");
-                    $("realval2_2").style.display = "none";
-                    $("realval2_1").style.display = "block";
-                }
-                else
-                    if (str.substring(0,1) == "-" ){
-                        $("realval3").innerHTML = s_floor + "&nbsp;" + UIProvider.curNom;
-                        $("total_real_summ").innerHTML = s_floor + "&nbsp;" + UIProvider.curNom;
-                        $("total_real_summ_ok").innerHTML = s_floor;
-                       // $("realval2_1").innerHTML = getStr("es_4_1");
-                       // $("realval2_2").innerHTML = getStr("es_4_1");
-                        $("realval2_2").style.display = "none";
-                        $("realval2_1").style.display = "block";
-                    }
-                    else
-
-                        if (str.substring(0,1) == "+" ){
-                            $("realval3").innerHTML = s_ceil + "&nbsp;" + UIProvider.curNom;
-                            $("total_real_summ").innerHTML = s_ceil + "&nbsp;" + UIProvider.curNom;
-                            $("total_real_summ_ok").innerHTML = s_ceil;
-                         //   $("realval2_1").innerHTML = getStr("es_4_1");
-                        //    $("realval2_2").innerHTML = getStr("es_4_1");
-                            $("realval2_2").style.display = "none";
-                            $("realval2_1").style.display = "block";
-
-
-                        }
-                        else
-                        {
-                            $("realval3").innerHTML = $('really_summ').value  + "&nbsp;" + UIProvider.curNom;
-                            $("total_real_summ").innerHTML = $('really_summ').value + "&nbsp;" + UIProvider.curNom;
-                            $("total_real_summ_ok").innerHTML = $('really_summ').value;
-
-                        }
-
-                //            $("realval").innerHTML = getStr("real_summ");   // + "&nbsp" + "("+ UIProvider.curNom + ")"
-              //  $("realval2").innerHTML = getStr("es_4");
-                $("totalusd").innerHTML = $('getAmount').value + " LAK";
-                $("totalusd2").innerHTML = $('getAmount').value + " LAK";
-                $("commision").innerHTML = $('komiss').value + " LAK";
-                $("commision2").innerHTML = $('komiss').value + " LAK";
-                $("maxcashsumm").innerHTML = $('max_cash_summ').value;
-                $("minsumm").innerHTML =  getStr("es_1") + $('min_summ').value + " LAK";
-
-
-                storage.put("summok", $("total_real_summ_ok").innerHTML);
-                //storage.put("summok", summ_ok);
-
-
             }
                 //  ----------------------------------------------------------------------------------------------------------------------
             else{  // округление остальных провайдеров
@@ -424,7 +331,7 @@
 
                 //var minsim = ($('min_summ').value
 
-                $("minsumm").innerHTML =  getStr("es_1") + " 5.000" + getStr("es_1_2") + " " + getStr("es_1_1") + "1.000.000 " + getStr("es_1_2");
+                $("minsumm").innerHTML =  getStr("es_1") + UIProvider.minSum + getStr("es_1_2") + " " + getStr("es_1_1") + UIProvider.maxSum + getStr("es_1_2");
                 $("phoneCheck").innerHTML = oPayInfo.account;
 
                 $("realval2_2").style.display = "none";
@@ -468,15 +375,9 @@
 
             var sLang = storage.get("language");
 
-            if (sLang == "F1")
+            if(UIProvider.minSum <= $("really_summ").value)
             {
-                $('btn_left_F1').style.display = "none";
-                //$('button_payment').className = "bottom-button-center";
                 $('button_payment').src = "./img/ui/navigation/payment_F1.gif";
-            }
-            else {
-                $('btn_left_FС').style.display = "none";
-                $('button_payment').src = "./img/ui/navigation/payment_FC.gif";
             }
                   
             switch (sElementId) {
@@ -497,6 +398,18 @@
                         //                    oPayInfo.summ = $("summok").value;
                         oPayInfo.summ = $("really_summ").value;
                         storage.put("pay_info", oPayInfo.serialize());
+
+                        if (sLang == "F1")
+                        {
+                            $('btn_left_F1').style.display = "none";
+
+                        }
+
+                        else {
+                            $('btn_left_FC').style.display = "none";
+
+                        }
+
                     }
                 case "comissionInfoText":
                     if ($("comissionInfoText").value.length != 0)
