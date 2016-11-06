@@ -63,11 +63,11 @@
 
             var sLang = storage.get("language");
             if (sLang == "F1"){
-                $('button_payment').src = "./img/ui/navigation/menu_F1.gif";
+                $('button_payment_F1').src = "./img/ui/navigation/menu_F1.gif";
             }
             else
                 if (sLang == "FC") {
-                    $('button_payment').src = "./img/ui/navigation/menu_FC.gif";
+                    $('button_payment_FC').src = "./img/ui/navigation/menu_FC.gif";
         
                 }
             setOpacity("commission_info", 90);
@@ -375,9 +375,22 @@
 
             var sLang = storage.get("language");
 
-            if(UIProvider.minSum <= $("really_summ").value)
+            if (sLang == "F1")
             {
-                $('button_payment').src = "./img/ui/navigation/payment_F1.gif";
+                $('btn_left_F1').style.display = "none";
+                if(UIProvider.minSum <= $("really_summ").value)
+                {
+                    $('button_payment_F1').src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                }
+            }
+
+            else {
+                $('btn_left_FC').style.display = "none";
+                if(UIProvider.minSum <= $("really_summ").value)
+                {
+                    $('button_payment_FC').src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                }
+
             }
                   
             switch (sElementId) {
@@ -398,17 +411,6 @@
                         //                    oPayInfo.summ = $("summok").value;
                         oPayInfo.summ = $("really_summ").value;
                         storage.put("pay_info", oPayInfo.serialize());
-
-                        if (sLang == "F1")
-                        {
-                            $('btn_left_F1').style.display = "none";
-
-                        }
-
-                        else {
-                            $('btn_left_FC').style.display = "none";
-
-                        }
 
                     }
                 case "comissionInfoText":
@@ -835,14 +837,15 @@
     </div>
 
     <div id="btn_center_F1" style="display: none; z-index: 5;" class="bottom-button-center">
-        <img id="button_payment" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
+        <img id="button_payment_F1" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
     </div>
-    <div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">
-       <img id="button_payment" src="./img/ui/navigation/menu_FC.gif" onclick="onPaymentBtnClick();" />
-    </div>
+<div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">
+    <img id="button_payment_FC" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
+</div>
 
     <script type="text/javascript">
-        attachPropertyChangeListener("really_summ", $callback(onValueChange, "really_summ"));
+        attachPropertyChangeListener("really_summ",
+                $callback(onValueChange, "really_summ"));
         attachPropertyChangeListener("komisswarn",
             $callback(onValueChange, "komisswarn"));
         attachPropertyChangeListener("komisswarn2",
