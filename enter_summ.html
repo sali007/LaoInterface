@@ -38,6 +38,7 @@
         function init() {
             var sLang = storage.get("language");
 
+
             if(sLang == "F1"){
                // $("btn_right_F1").style.display = "block";
                 $("btn_left_F1").style.display = "block";
@@ -347,10 +348,6 @@
 
         
         function onPaymentBtnClick() {
-
-            if (prvId == 690) {
-                oPayInfo.account.substr(1);
-            }
 
             startAdvert('Enter_Summ');
             setTimeout(function(){
