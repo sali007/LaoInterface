@@ -14,9 +14,10 @@
 <script type="text/javascript">
 var i = 0,
     l = 5;
+var sLang = storage.get("language");
 function init()
 {
- var sLang = storage.get("language");
+
  if (sLang == "F1"){
 	slide();
 	document.getElementById('btn_back').style.display = "block";
