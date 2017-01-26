@@ -31,6 +31,8 @@
         var oPayInfo = Object.deserialize(storage.get("pay_info"));
         var prvId = storage.get("provider");
         var logo;
+        var minSum;
+
 
 
         
@@ -70,6 +72,8 @@
         
                 }
             setOpacity("commission_info", 90);
+
+            minSum = UIProvider.minSum;
             new CInnerShadow($('btn_right_F1').getElementsByTagName('img')[0], { color: 30 });
             new CInnerShadow($('btn_right_FC').getElementsByTagName('img')[0], { color: 30 });
         }
@@ -378,23 +382,9 @@
 
             var sLang = storage.get("language");
 
-            if (sLang == "F1")
-            {
-                $('btn_left_F1').style.display = "none";
-                if(UIProvider.minSum <= $("really_summ").value)
-                {
-                    $('button_payment_F1').src = "./img/ui/navigation/payment_" + sLang + ".gif";
-                }
-            }
 
-            else {
-                $('btn_left_FC').style.display = "none";
-                if(UIProvider.minSum <= $("really_summ").value)
-                {
-                    $('button_payment_FC').src = "./img/ui/navigation/payment_" + sLang + ".gif";
-                }
+                $('btn_left_'+sLang).style.display = "none";
 
-            }
                   
             switch (sElementId) {
                 case "komisswarn":
@@ -410,11 +400,12 @@
                     break;
                 case "really_summ":
                     if (oPayInfo != null) {
-                        //                    oPayInfo.summ = storage.get("summok");
-                        //                    oPayInfo.summ = $("summok").value;
+                        if(minSum <= $("really_summ").value) {
+                            $('button_payment_'+ sLang).src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                        }
                         oPayInfo.summ = $("really_summ").value;
                         storage.put("pay_info", oPayInfo.serialize());
-
+                        break;
                     }
                 case "comissionInfoText":
                     if ($("comissionInfoText").value.length != 0)
@@ -839,7 +830,7 @@
         <img  src="./img/ui/navigation/forward_FC.gif" onclick="onPaymentBtnClick();" />
     </div>
 
-    <div id="btn_center_F1" style="display: none; z-index: 5;" class="bottom-button-center">
+    <div id="btn_center_F1" style="display: none" class="bottom-button-center">
         <img id="button_payment_F1" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
     </div>
 <div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">

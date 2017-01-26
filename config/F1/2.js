@@ -8,8 +8,8 @@ UIProvider ={"curId":"643","curNom":"RUB",
   "sName": "Beeline",
   "small_logo": "",
   "tag": "visible",
-  "minSum":"3000",
-  "maxSum":"1000000",
+  "minSum":3000,
+  "maxSum":1000000,
   "__objects": [
     {
       "__type": "constParams"
