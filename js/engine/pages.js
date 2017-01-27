@@ -11,6 +11,7 @@ CPage = createClass
 
 	    _paint: function() {
 	        var oPlace = $(this.getPlaceId());
+			var sLang = storage.get("language");
 	        if(oPlace)
 	        {
 	            oPlace.innerHTML =
@@ -25,7 +26,7 @@ CPage = createClass
                                                                         ' <div  style="width: 1090px; height: 180px; margin-left: 7px; overflow: hidden; display: block;">' +
 				'	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="100%" height="100%" style="margin-left: 220px;">' +
 				'               <param name="allowScriptAccess" value="sameDomain" />' +
-				'               <param name="movie" value="./swf/banner.png" />' +
+				'               <param name="movie" value="./swf/banner_'+sLang+'.png" />' +
 				'               <param name="quality" value="best" />' +
 				'               <param name="wmode" value="transparent" />' +
 				'           </object>' +
