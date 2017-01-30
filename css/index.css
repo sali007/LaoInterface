@@ -257,3 +257,36 @@
     right: 50px;
     top: 250px; 
 }
+
+#index_info_F1,#index_rules_F1 {
+    font-weight: bold;
+    font-size: 80px;
+    color: #ffffff;
+}
+
+#index_info_F1 {
+    position: absolute;
+    margin: -20px 0px 0px -130px;
+}
+
+#index_rules_F1 {
+    position: absolute;
+    margin: -10px 0px 60px 100px;
+}
+
+#index_info_FC,#index_rules_FC {
+    font-weight: bold;
+    font-size: 50px;
+    border-color: firebrick;
+    color: #ffffff;
+}
+
+#index_info_FC {
+    position: absolute;
+    margin: 10px 0px 0px -280px;
+}
+
+#index_rules_FC {
+    position: absolute;
+    margin: 10px 0px 0px 100px;
+}

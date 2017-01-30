@@ -18,6 +18,10 @@
 
     <script type="text/javascript" src="./js/engine/holidays.js"></script>
 
+    <script type="text/javascript" src="./js/lang/str_F1.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_FC.js"></script>
+
     <script type="text/javascript">
 
         var nAdvTimer = 0;
@@ -27,6 +31,7 @@
         var flag = false;
         var dat = new Date();
         var advert3;
+        var sLang;
 
 
         function start() {
@@ -43,7 +48,7 @@
 
 
             //------------------Курсы -------------------------
-            var sLang = storage.get("language");
+               sLang = storage.get("language");
 
             if (!sLang || sLang == "null") {
                 sLang = "F1";
@@ -52,10 +57,7 @@
             $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
             $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
             $("logo-main").style.background = "url('./img/ui/EasyPay-logo-main_" + sLang + ".png') no-repeat";
-            //$(sLang + "_lang").style.background = "url('./img/ui/index/l_" + sLang + "_on.png') no-repeat";
-            // $("btn_1").style.background = "url('./img/ui/index/main_pay_" + sLang + ".gif') no-repeat";
-            //  $("btn_2").style.background = "url('./img/ui/index/main_info_" + sLang + ".gif') no-repeat";
-            //   $("btn_3").style.background = "url('./img/ui/index/butt_bott_" + sLang + "_zkh.gif') no-repeat";
+
             $('rules').style.background = 'url(\'./img/ui/index/rules_' + sLang + '.png\') no-repeat';
             $('info').style.background = 'url(\'./img/ui/index/info_' + sLang + '.png\') no-repeat';
 
@@ -66,6 +68,12 @@
 
             $("Language").value = sLang;
             storage.clearExcept(["_adv_counter", "language"]);
+
+            $("index_info_"+sLang).style.display = "block";
+            $("index_rules_"+sLang).style.display = "block";
+
+            $("index_info_"+sLang).innerHTML  = getStr("index_info");
+            $("index_rules_"+sLang).innerHTML  = getStr("index_rules");
 
             //-------------------Курсы----------------------
             var mess = ''
@@ -118,6 +126,22 @@
             $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
             $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
             $(sLanguage + "_lang").style.background = "url('./img/ui/index/l_" + sLanguage + "_on.png') no-repeat";
+
+            if(sLanguage == "F1") {
+                $("index_info_FC").style.display = "none";
+                $("index_rules_FC").style.display = "none";
+            }
+
+            else {
+                $("index_info_F1").style.display = "none";
+                $("index_rules_F1").style.display = "none";
+            }
+
+            $("index_info_"+sLanguage).style.display = "block";
+            $("index_rules_"+sLanguage).style.display = "block";
+
+            $("index_info_"+sLanguage).innerHTML  = getStr("index_info");
+            $("index_rules_"+sLanguage).innerHTML  = getStr("index_rules");
 
 
         }
@@ -422,10 +446,16 @@
     <div id="logo-main" style="position: absolute; width: 980px;height: 330px; left: 170px; top: 120px;">
     </div>
 
-        <!--<div id='new_curs' style='position: absolute; width: 500px; height: 70px; left: 390px; top: 25px; color: white; text-align: center; font-size: 28px;'></div>-->
-    <div id="info" style="width: 300px; height: 114px; left: 535px; top: 850px; position: absolute;"></div>
-    <!--<div style="position: absolute; width: 100px; height: 100px; left: 585px; top: 850px; background: url(./img/ui/index/inf.png);" onclick=" document.location.href = './karta.html'; "></div>-->
-    <div id="rules" style="width: 300px; height: 114px; left: 635px; top: 850px; position: absolute;"></div>
+    <div id="info" style="width: 300px; height: 114px; left: 535px; top: 850px; position: absolute;">
+        <p id="index_info_F1" style="display: none"></p>
+        <p id="index_info_FC" style="display: none"></p>
+    </div>
+
+    <div id="rules" style="width: 300px; height: 114px; left: 635px; top: 850px; position: absolute;">
+        <p id="index_rules_F1" style="display: none"></p>
+        <p id="index_rules_FC" style="display: none"></p>
+    </div>
+
     <div id='new_buttons' style='position: absolute; width: 950px; height: 400px; left: 165px; top: 330px; z-index: 1000; text-align:center;'>
         <table width="100%" height="100%" >
             <tr>
