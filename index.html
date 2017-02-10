@@ -120,7 +120,7 @@
             storage.put("language", sLanguage);
             $("Language").value = sLanguage;
             $("logo-main").style.background = "url('./img/ui/EasyPay-logo-main_" + sLanguage + ".png') no-repeat";
-      
+
             $("F1_lang").style.background = "url('./img/ui/index/l_F1_on.png') no-repeat";
             $("FC_lang").style.background = "url('./img/ui/index/l_FC_on.png') no-repeat";
             $(sLanguage + "_lang").style.background = "url('./img/ui/index/l_" + sLanguage + "_on.png') no-repeat";
@@ -185,9 +185,9 @@
             attachEventListener('new_button_2', 'click', function () {
                 onButtonClick(2)
             });
-            //attachEventListener('new_button_3', 'click', function () {
-            //    onButtonClick(3)
-            //});
+            attachEventListener('new_button_3', 'click', function () {
+                onButtonClick(3)
+            });
             //attachEventListener('new_button_4', 'click', function () {
             //    onButtonClick(4)
             //});
