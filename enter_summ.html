@@ -25,6 +25,7 @@
     <script type="text/javascript">	
         var okr = 555;
         var oPayInfo = null;
+        var UIP= null;
         var bIsEnterSumm = true;
         var nCommInfoTimeout = 0;
         var nCommInfoNum = 0;
@@ -73,11 +74,7 @@
                 }
             setOpacity("commission_info", 90);
 
-            if(UIProvider.minSum == undefined) {
-                document.location.href = "./index.html";
-            }
 
-            minSum = UIProvider.minSum;
             new CInnerShadow($('btn_right_F1').getElementsByTagName('img')[0], { color: 30 });
             new CInnerShadow($('btn_right_FC').getElementsByTagName('img')[0], { color: 30 });
         }
@@ -345,6 +342,8 @@
 
 
                 storage.put("summok", $("total_real_summ_ok").innerHTML);
+
+                minSum = UIProvider.minSum;
             }
         }
 
