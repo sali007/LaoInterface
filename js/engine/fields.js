@@ -405,11 +405,13 @@ CDIFieldChunk = createClass
 	                                this._aChunks[nPrevIdx].value;
 	                }
 	                if (!$isNoU(this._adChunks[this._nActiveChunk])) {
+
 	                    this._adChunks[this._nActiveChunk].setValue(
 	                        this._adChunks[this._nActiveChunk].getValue() + sValue);
 	                }
 	                if (this._adChunks[this._nActiveChunk].isFull()) {
 	                    var nNextChunk = this._getFirstNoFullChunk();
+
 	                    if (nNextChunk > -1) {
 	                        if (!$isNoU(this._aChunks[nPrevIdx]) && this._aChunks[nPrevIdx].type == "STATIC") {
 	                            $(this._aChunks[nPrevIdx].place).innerHTML =
@@ -1006,6 +1008,7 @@ CDIFieldChunk = createClass
 	    },
 
 	    processValue: function(sValue) {
+
 	        switch (sValue) {
 	            case "BACKSPACE":
 	                if (this.isEmpty()) {
@@ -1029,7 +1032,9 @@ CDIFieldChunk = createClass
 	                }
 	                break;
 	            default:
+
 	                this._aBlocks[this._nCurrentBlock].processValue(sValue);
+
 	        }
 	    },
 
